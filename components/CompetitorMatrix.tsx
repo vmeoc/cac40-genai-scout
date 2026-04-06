@@ -68,7 +68,20 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
     );
   }
 
-  if (!data) return null;
+  if (!data || !Array.isArray(data.dimensions) || !Array.isArray(data.companies)) {
+    return (
+      <div className="rounded-xl p-6 text-center"
+        style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
+        <p className="text-sm mb-4" style={{ color: "#94A3B8" }}>
+          Données incomplètes reçues. Veuillez relancer l&apos;analyse.
+        </p>
+        <button onClick={() => { setDone(false); setData(null); }}
+          className="text-sm px-4 py-2 rounded-lg" style={{ background: "rgba(124,58,237,0.2)", color: "#A855F7" }}>
+          Réessayer →
+        </button>
+      </div>
+    );
+  }
 
   const radarData = data.dimensions.map((dim, i) => {
     const point: Record<string, string | number> = { dimension: dim };

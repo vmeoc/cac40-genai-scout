@@ -76,9 +76,34 @@ export async function GET(req: Request) {
     });
   }
 
+  const fallback = {
+    dimensions: ["Budget IA", "Use cases prod", "Partenariats", "Recrutement", "Communication"],
+    companies: [company, ...competitors].map((c) => ({
+      name: c.name,
+      scores: [
+        Math.round(c.score / 20),
+        Math.min(5, c.useCases.length),
+        Math.min(5, c.aiPartners.length),
+        Math.round(c.score / 25),
+        Math.max(1, Math.min(5, Math.round(c.trend / 8))),
+      ],
+      topUseCase: c.useCases[0]?.title || "N/A",
+      aiPartner: c.aiPartners[0] || "N/A",
+    })),
+    insights: ["Analyse basée sur les données statiques du dataset CAC40."],
+    opportunity: `## Opportunité Anthropic pour ${company.name}\n\n**Analyse disponible** : Relancez l'analyse pour obtenir des opportunités détaillées basées sur les dernières données du secteur ${company.sector}.`,
+  };
+
   try {
-    return Response.json(JSON.parse(jsonMatch[0]));
+    const parsed = JSON.parse(jsonMatch[0]) as Partial<typeof fallback>;
+    // Merge with fallback to ensure required fields are always present
+    return Response.json({
+      dimensions: Array.isArray(parsed.dimensions) ? parsed.dimensions : fallback.dimensions,
+      companies: Array.isArray(parsed.companies) && parsed.companies.length > 0 ? parsed.companies : fallback.companies,
+      insights: Array.isArray(parsed.insights) ? parsed.insights : fallback.insights,
+      opportunity: typeof parsed.opportunity === "string" ? parsed.opportunity : fallback.opportunity,
+    });
   } catch {
-    return Response.json({ error: "Parse error" }, { status: 500 });
+    return Response.json(fallback);
   }
 }

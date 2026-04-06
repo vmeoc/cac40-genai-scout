@@ -4,7 +4,7 @@ export function buildAnalysisPrompt(companyName: string, sector: string, searchR
 Search results:
 ${searchResults}
 
-Provide a comprehensive analysis in French with the following sections:
+Provide a comprehensive analysis in French with the following sections (in this exact order):
 
 ## Score GenAI: [X]/100
 
@@ -23,8 +23,13 @@ Provide a comprehensive analysis in French with the following sections:
 ### Points d'attention
 [Risks, gaps, or areas where they could need help — be honest and specific]
 
-### Recommandation Anthropic
-[1-2 paragraphs on how Claude/Anthropic could specifically help this company — be concrete about which Claude capabilities address which of their challenges]
+### 💡 Opportunités pour Anthropic
+[This section is MANDATORY. Write 3-4 concrete paragraphs on how Claude/Anthropic could specifically help this company. Cover:
+1. Core-business angle: which specific Claude capability solves which of their challenges
+2. Developer & API angle: how their tech teams could use Claude API for internal tools
+3. Individual productivity angle: how Claude could augment employees in their specific sector
+4. One concrete proposed next step (e.g. workshop, PoC, specific use case to demo)
+Be specific, reference their actual AI initiatives and gaps. Do NOT skip this section.]
 
 Be specific, cite sources from the search results when possible, and keep the tone professional and insightful.`;
 }

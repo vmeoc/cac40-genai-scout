@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { Loader2, RefreshCw, ExternalLink } from "lucide-react";
+import { renderMarkdown } from "@/lib/render-markdown";
 
 interface Props {
   companySlug: string;
@@ -59,22 +60,6 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
     }
   }, [text, loading]);
 
-  function renderMarkdown(raw: string) {
-    const lines = raw.split("\n");
-    return lines.map((line, i) => {
-      if (line.startsWith("## ")) return <h2 key={i} className="text-white font-bold text-base mt-4 mb-2 pb-1" style={{ borderBottom: "1px solid rgba(124,58,237,0.3)" }}>{line.slice(3)}</h2>;
-      if (line.startsWith("### ")) return <h3 key={i} className="font-semibold text-sm mt-3 mb-1" style={{ color: "#A855F7" }}>{line.slice(4)}</h3>;
-      if (line.startsWith("- ") || line.startsWith("* ")) return (
-        <div key={i} className="flex gap-2 py-0.5">
-          <span style={{ color: "#7C3AED" }}>▸</span>
-          <span className="text-sm" style={{ color: "#CBD5E1" }}>{line.slice(2)}</span>
-        </div>
-      );
-      if (line.trim() === "") return <div key={i} className="h-2" />;
-      return <p key={i} className="text-sm leading-relaxed py-0.5" style={{ color: "#CBD5E1" }}>{line}</p>;
-    });
-  }
-
   if (!started) {
     return (
       <div className="rounded-xl p-8 text-center"
@@ -92,7 +77,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
           className="px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90 glow-accent"
           style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
         >
-          ▶ Lancer l'analyse Claude
+          ▶ Lancer l&apos;analyse Claude
         </button>
       </div>
     );
@@ -136,9 +121,9 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
       </div>
 
       {/* Content */}
-      <div className="p-5 max-h-[500px] overflow-y-auto" style={{ background: "rgba(15,15,26,0.3)" }}>
+      <div className="p-5 max-h-[520px] overflow-y-auto prose-dark" style={{ background: "rgba(15,15,26,0.3)" }}>
         {text ? (
-          <div className="prose-dark">
+          <div>
             {renderMarkdown(text)}
             {loading && (
               <span className="cursor-blink text-base font-bold ml-0.5" style={{ color: "#7C3AED" }}>▌</span>
@@ -147,7 +132,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
         ) : (
           <div className="flex items-center gap-3 py-4">
             <Loader2 size={16} className="animate-spin" style={{ color: "#7C3AED" }} />
-            <span className="text-sm" style={{ color: "#94A3B8" }}>Recherche d'informations...</span>
+            <span className="text-sm" style={{ color: "#94A3B8" }}>Recherche d&apos;informations...</span>
           </div>
         )}
         <div ref={bottomRef} />

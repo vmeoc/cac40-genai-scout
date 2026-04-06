@@ -39,7 +39,7 @@ export default function CompanyPage() {
 
   const dimScores = [
     Math.round(company.score / 20),
-    Math.min(5, company.useCaseCount),
+    Math.min(5, company.useCases.length),
     Math.min(5, company.aiPartners.length),
     Math.round(company.score / 25),
     Math.round(company.trend / 10),
@@ -140,7 +140,7 @@ export default function CompanyPage() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span style={{ color: "#94A3B8" }}>Use cases</span>
-                  <span className="text-white font-medium">{company.useCaseCount}</span>
+                  <span className="text-white font-medium">{company.useCases.length}</span>
                 </div>
                 {company.knownLeader && (
                   <div className="flex justify-between text-sm">

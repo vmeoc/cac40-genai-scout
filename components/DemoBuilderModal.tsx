@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Loader2, Copy, Check, Sparkles, Mail, ArrowRight, Zap } from "lucide-react";
 import { Company } from "@/lib/cac40-data";
+import { renderMarkdown } from "@/lib/render-markdown";
 
 interface Props {
   company: Company;
@@ -68,23 +69,6 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  function renderContent(text: string) {
-    const lines = text.split("\n");
-    return lines.map((line, i) => {
-      if (line.startsWith("## ")) return <h2 key={i} className="text-white font-bold text-sm mt-3 mb-1.5 pb-1" style={{ borderBottom: "1px solid rgba(124,58,237,0.3)" }}>{line.slice(3)}</h2>;
-      if (line.startsWith("### ")) return <h3 key={i} className="font-semibold text-xs mt-2.5 mb-1" style={{ color: "#A855F7" }}>{line.slice(4)}</h3>;
-      if (line.startsWith("SUBJECT:")) return <div key={i} className="font-semibold text-sm py-1" style={{ color: "#06B6D4" }}>{line}</div>;
-      if (line.startsWith("- ") || line.startsWith("* ")) return (
-        <div key={i} className="flex gap-2 py-0.5">
-          <span style={{ color: "#7C3AED" }}>▸</span>
-          <span className="text-xs" style={{ color: "#CBD5E1" }}>{line.slice(2)}</span>
-        </div>
-      );
-      if (line.trim() === "") return <div key={i} className="h-1.5" />;
-      return <p key={i} className="text-xs leading-relaxed py-0.5" style={{ color: "#CBD5E1" }}>{line}</p>;
-    });
-  }
-
   return (
     <AnimatePresence>
       <motion.div
@@ -92,7 +76,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-50 flex items-center justify-center p-4"
-        style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)" }}
+        style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(8px)" }}
         onClick={(e) => e.target === e.currentTarget && onClose()}
       >
         <motion.div
@@ -146,7 +130,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
           </div>
 
           {/* Tabs */}
-          <div className="flex px-6 gap-2 mb-0" style={{ borderBottom: "1px solid rgba(45,45,80,0.8)" }}>
+          <div className="flex px-6 gap-2" style={{ borderBottom: "1px solid rgba(45,45,80,0.8)" }}>
             {[
               { id: "demo" as Tab, label: "Proposition de démo", Icon: Zap },
               { id: "email" as Tab, label: "Email de prospection", Icon: Mail },
@@ -173,7 +157,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                 <p className="text-sm mb-4" style={{ color: "#94A3B8" }}>
                   {tab === "demo"
                     ? `Claude va générer une proposition de démo personnalisée pour ${company.name} sur "${selectedUseCase}".`
-                    : `Claude va rédiger un email de prospection personnalisé pour ${company.knownLeader || "le décideur IA"} de ${company.name}.`
+                    : `Claude va rédiger un email personnalisé pour ${company.knownLeader || "le décideur IA"} de ${company.name}.`
                   }
                 </p>
                 <button
@@ -214,8 +198,8 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                     </button>
                   </div>
                 </div>
-                <div className="p-4 max-h-72 overflow-y-auto" style={{ background: "rgba(15,15,26,0.3)" }}>
-                  {renderContent(currentText)}
+                <div className="p-4 max-h-72 overflow-y-auto prose-dark" style={{ background: "rgba(15,15,26,0.3)" }}>
+                  {renderMarkdown(currentText)}
                   {loading && <span className="cursor-blink text-sm font-bold" style={{ color: "#7C3AED" }}>▌</span>}
                 </div>
               </div>

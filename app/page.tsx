@@ -26,7 +26,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium mb-6"
               style={{ background: "rgba(124,58,237,0.15)", border: "1px solid rgba(124,58,237,0.3)", color: "#A855F7" }}>
               <Sparkles size={12} />
-              Analyse en temps réel du potentiel GenAI du CAC40 — une proposition de Vincent Méoc — Powered by Claude Anthropic
+              Analyse en temps réel du potentiel GenAI du CAC40
             </div>
 
             <h1 className="text-4xl sm:text-5xl font-bold mb-4 leading-tight">

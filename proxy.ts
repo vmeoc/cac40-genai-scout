@@ -22,6 +22,11 @@ export function proxy(req: NextRequest) {
     return addSecurityHeaders(NextResponse.next());
   }
 
+  // ── Health endpoints: open to monitors (UptimeRobot, etc.) ────────────────
+  if (pathname.startsWith("/api/health")) {
+    return addSecurityHeaders(NextResponse.next());
+  }
+
   // ── Bot detection ──────────────────────────────────────────────────────────
   const ua = req.headers.get("user-agent") || "";
   if (!isDev && !DEV_EXCEPTIONS.test(ua) && BOT_PATTERNS.some((p) => p.test(ua))) {

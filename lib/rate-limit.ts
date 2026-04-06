@@ -56,10 +56,11 @@ export function rateLimit(
 
 /** Per-endpoint limits: [maxRequests, windowMs] */
 export const LIMITS: Record<string, [number, number]> = {
-  analyze:     [4,  60_000],   // 4 streaming analyses / min  (heavy: Tavily×2 + Claude stream)
-  demo:        [6,  60_000],   // 6 demo/email generations / min
-  contacts:    [10, 60_000],   // 10 contact searches / min
-  competitors: [8,  60_000],   // 8 competitor analyses / min
+  analyze:      [4,  60_000],     // 4 streaming analyses / min  (heavy: Tavily×2 + Claude stream)
+  demo:         [6,  60_000],     // 6 demo/email generations / min
+  contacts:     [10, 60_000],     // 10 contact searches / min
+  competitors:  [8,  60_000],     // 8 competitor analyses / min
+  "health-llm": [3,  3_600_000], // 3 LLM pings / hour (covers UptimeRobot + occasional manual)
 };
 
 /** Extract a best-effort client IP from Next.js request headers */

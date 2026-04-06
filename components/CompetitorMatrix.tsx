@@ -23,15 +23,29 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
   const [data, setData] = useState<CompetitorData | null>(null);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
+  const [error, setError] = useState("");
 
   const analyze = async () => {
     setLoading(true);
+    setError("");
     try {
       const res = await fetch(`/api/competitors?slug=${companySlug}`);
+      if (res.status === 429) {
+        const body = await res.json() as { retryAfter?: number };
+        setError(`Limite de requêtes atteinte. Réessayez dans ${body.retryAfter ?? 60}s.`);
+        setDone(true);
+        return;
+      }
+      if (!res.ok) {
+        setError("Erreur serveur. Veuillez réessayer.");
+        setDone(true);
+        return;
+      }
       const json = await res.json() as CompetitorData;
       setData(json);
       setDone(true);
     } catch {
+      setError("Erreur réseau. Veuillez réessayer.");
       setDone(true);
     } finally {
       setLoading(false);
@@ -68,14 +82,14 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
     );
   }
 
-  if (!data || !Array.isArray(data.dimensions) || !Array.isArray(data.companies)) {
+  if (error || !data || !Array.isArray(data.dimensions) || !Array.isArray(data.companies)) {
     return (
       <div className="rounded-xl p-6 text-center"
         style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
         <p className="text-sm mb-4" style={{ color: "#94A3B8" }}>
-          Données incomplètes reçues. Veuillez relancer l&apos;analyse.
+          {error || "Données incomplètes reçues. Veuillez relancer l'analyse."}
         </p>
-        <button onClick={() => { setDone(false); setData(null); }}
+        <button onClick={() => { setDone(false); setData(null); setError(""); }}
           className="text-sm px-4 py-2 rounded-lg" style={{ background: "rgba(124,58,237,0.2)", color: "#A855F7" }}>
           Réessayer →
         </button>

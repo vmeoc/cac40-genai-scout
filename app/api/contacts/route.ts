@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getCompanyBySlug } from "@/lib/cac40-data";
 import { buildContactsPrompt } from "@/lib/prompts";
+import { rateLimit, getClientIp, tooManyRequests, LIMITS } from "@/lib/rate-limit";
 
 export const maxDuration = 30;
 
@@ -44,6 +45,11 @@ function buildStaticContact(company: { knownLeader?: string; knownLeaderTitle?: 
 }
 
 export async function GET(req: Request) {
+  const ip = getClientIp(req);
+  const [limit, windowMs] = LIMITS.contacts;
+  const rl = rateLimit(ip, "contacts", limit, windowMs);
+  if (!rl.allowed) return tooManyRequests(rl.resetIn);
+
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug");
   if (!slug) return Response.json({ error: "Missing slug" }, { status: 400 });

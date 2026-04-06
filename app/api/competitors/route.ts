@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getCompanyBySlug, getCompanyCompetitors } from "@/lib/cac40-data";
 import { buildCompetitorsPrompt } from "@/lib/prompts";
+import { rateLimit, getClientIp, tooManyRequests, LIMITS } from "@/lib/rate-limit";
 
 export const maxDuration = 30;
 
@@ -20,6 +21,11 @@ async function searchTavily(query: string): Promise<string> {
 }
 
 export async function GET(req: Request) {
+  const ip = getClientIp(req);
+  const [limit, windowMs] = LIMITS.competitors;
+  const rl = rateLimit(ip, "competitors", limit, windowMs);
+  if (!rl.allowed) return tooManyRequests(rl.resetIn);
+
   const { searchParams } = new URL(req.url);
   const slug = searchParams.get("slug");
   if (!slug) return Response.json({ error: "Missing slug" }, { status: 400 });

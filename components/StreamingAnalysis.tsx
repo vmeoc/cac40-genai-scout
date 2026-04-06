@@ -34,6 +34,12 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
         signal: abortRef.current.signal,
       });
 
+      if (res.status === 429) {
+        const data = await res.json() as { retryAfter?: number };
+        setText(`_Limite de requêtes atteinte. Réessayez dans ${data.retryAfter ?? 60} secondes._`);
+        setDone(true);
+        return;
+      }
       if (!res.ok || !res.body) throw new Error("Stream failed");
 
       const reader = res.body.getReader();

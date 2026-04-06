@@ -1,8 +1,8 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { getCompanyBySlug } from "@/lib/cac40-data";
 import { buildAnalysisPrompt } from "@/lib/prompts";
+import { rateLimit, getClientIp, tooManyRequests, LIMITS } from "@/lib/rate-limit";
 
-export const runtime = "edge";
 export const maxDuration = 60;
 
 async function searchTavily(query: string): Promise<string> {
@@ -36,7 +36,14 @@ async function searchTavily(query: string): Promise<string> {
 }
 
 export async function POST(req: Request) {
-  const { slug } = await req.json() as { slug: string };
+  // Rate limiting
+  const ip = getClientIp(req);
+  const [limit, windowMs] = LIMITS.analyze;
+  const rl = rateLimit(ip, "analyze", limit, windowMs);
+  if (!rl.allowed) return tooManyRequests(rl.resetIn);
+
+  const body = await req.json() as { slug?: unknown };
+  const slug = typeof body.slug === "string" ? body.slug.slice(0, 60) : "";
   const company = getCompanyBySlug(slug);
   if (!company) {
     return new Response("Company not found", { status: 404 });
@@ -78,6 +85,7 @@ export async function POST(req: Request) {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "X-Content-Type-Options": "nosniff",
+      "X-RateLimit-Remaining": String(rl.remaining),
     },
   });
 }

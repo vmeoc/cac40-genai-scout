@@ -4,12 +4,23 @@ export function buildAnalysisPrompt(companyName: string, sector: string, searchR
 Search results:
 ${searchResults}
 
-Provide a comprehensive analysis in French with the following sections (in this exact order):
+Provide a comprehensive analysis in French with the following sections IN THIS EXACT ORDER — do not skip any section:
 
 ## Score GenAI: [X]/100
 
 ### Résumé stratégique
 [2-3 paragraph executive summary of their GenAI positioning]
+
+### 💡 Opportunités pour Anthropic
+WRITE THIS SECTION COMPLETELY BEFORE MOVING ON. It must contain exactly 4 numbered sub-sections:
+
+1. **Axe Core-Métier** : [Specific Claude capability that directly addresses their main GenAI challenge. Reference their actual initiatives. 3-5 sentences + concrete proposition.]
+
+2. **Axe Developer & API** : [How their engineering/data teams could use Claude API to build internal tools, automate workflows, accelerate delivery. 3-5 sentences + concrete proposition.]
+
+3. **Axe Productivité Individuelle** : [How Claude could augment each employee in their sector — legal, finance, HR, marketing, operations. Be sector-specific. 3-5 sentences.]
+
+4. **Prochaine étape recommandée** : [One single concrete action to propose this week: a specific workshop, PoC, or use case to demo. Name the right contact and the 2-week deliverable.]
 
 ### Investissements et signaux clés
 [Bullet points of key investments, partnerships, announcements with dates when available]
@@ -22,14 +33,6 @@ Provide a comprehensive analysis in French with the following sections (in this 
 
 ### Points d'attention
 [Risks, gaps, or areas where they could need help — be honest and specific]
-
-### 💡 Opportunités pour Anthropic
-[This section is MANDATORY. Write 3-4 concrete paragraphs on how Claude/Anthropic could specifically help this company. Cover:
-1. Core-business angle: which specific Claude capability solves which of their challenges
-2. Developer & API angle: how their tech teams could use Claude API for internal tools
-3. Individual productivity angle: how Claude could augment employees in their specific sector
-4. One concrete proposed next step (e.g. workshop, PoC, specific use case to demo)
-Be specific, reference their actual AI initiatives and gaps. Do NOT skip this section.]
 
 Be specific, cite sources from the search results when possible, and keep the tone professional and insightful.`;
 }

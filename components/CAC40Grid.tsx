@@ -8,13 +8,13 @@ type SortKey = "score" | "trend" | "name";
 
 export default function CAC40Grid() {
   const [search, setSearch] = useState("");
-  const [sector, setSector] = useState("Tous");
+  const [sector, setSector] = useState("All");
   const [sort, setSort] = useState<SortKey>("score");
   const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(() => {
     let list = [...CAC40_COMPANIES];
-    if (sector !== "Tous") list = list.filter((c) => c.sector === sector);
+    if (sector !== "All") list = list.filter((c) => c.sector === sector);
     if (search) {
       const q = search.toLowerCase();
       list = list.filter((c) => c.name.toLowerCase().includes(q) || c.sector.toLowerCase().includes(q));
@@ -33,14 +33,14 @@ export default function CAC40Grid() {
       {/* Stats bar */}
       <div className="flex flex-wrap items-center gap-4 mb-6">
         <div className="flex items-center gap-2 text-sm" style={{ color: "#94A3B8" }}>
-          <span className="font-bold text-white">{CAC40_COMPANIES.length}</span> entreprises
+          <span className="font-bold text-white">{CAC40_COMPANIES.length}</span> companies
         </div>
         <div className="flex items-center gap-2 text-sm" style={{ color: "#10B981" }}>
           <TrendingUp size={14} />
-          <span className="font-bold">{topCount}</span> très bullish GenAI
+          <span className="font-bold">{topCount}</span> highly bullish on GenAI
         </div>
         <div className="ml-auto text-xs" style={{ color: "#94A3B8" }}>
-          Données mises à jour · Avr 2025
+          Last updated · Apr 2025
         </div>
       </div>
 
@@ -52,7 +52,7 @@ export default function CAC40Grid() {
           <input
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Rechercher une entreprise..."
+            placeholder="Search a company..."
             className="w-full pl-9 pr-3 py-2 rounded-lg text-sm outline-none focus:ring-1 transition-all"
             style={{
               background: "rgba(30,30,53,0.8)",
@@ -71,7 +71,7 @@ export default function CAC40Grid() {
         <div className="flex items-center gap-2">
           <SlidersHorizontal size={14} style={{ color: "#94A3B8" }} />
           <div className="flex flex-wrap gap-2">
-            {["Tous", ...SECTORS].map((s) => (
+            {["All", ...SECTORS].map((s) => (
               <button
                 key={s}
                 onClick={() => setSector(s)}
@@ -99,16 +99,16 @@ export default function CAC40Grid() {
             color: "#F1F5F9",
           }}
         >
-          <option value="score">Trier par Score</option>
-          <option value="trend">Trier par Tendance</option>
-          <option value="name">Trier par Nom</option>
+          <option value="score">Sort by Score</option>
+          <option value="trend">Sort by Trend</option>
+          <option value="name">Sort by Name</option>
         </select>
       </div>
 
       {/* Results count */}
       {filtered.length !== CAC40_COMPANIES.length && (
         <p className="text-xs mb-4" style={{ color: "#94A3B8" }}>
-          {filtered.length} résultat{filtered.length > 1 ? "s" : ""} pour ces critères
+          {filtered.length} result{filtered.length > 1 ? "s" : ""} for these criteria
         </p>
       )}
 
@@ -132,7 +132,7 @@ export default function CAC40Grid() {
               color: "#F1F5F9",
             }}
           >
-            Afficher les {filtered.length - 12} autres entreprises →
+            Show {filtered.length - 12} more companies →
           </button>
         </div>
       )}

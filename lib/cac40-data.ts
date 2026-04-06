@@ -28,650 +28,551 @@ export const CAC40_COMPANIES: Company[] = [
   {
     "id": "capgemini",
     "name": "Capgemini",
-    "sector": "IT & Conseil",
+    "sector": "IT & Consulting",
     "sectorIcon": "💻",
-    "description": "Leader mondial des services numériques et de la transformation digitale.",
+    "description": "Global leader in digital services and digital transformation.",
     "score": 94,
     "trend": 31,
     "useCaseCount": 8,
-    "aiPartners": [
-      "Microsoft",
-      "Google",
-      "AWS",
-      "Mistral",
-      "OpenAI"
-    ],
+    "aiPartners": ["Microsoft", "Google", "AWS", "Mistral", "OpenAI"],
     "knownLeader": "Aiman Ezzat",
     "knownLeaderTitle": "CEO & AI Champion",
-    "competitors": [
-      "publicis-groupe",
-      "dassault-systemes"
-    ],
+    "competitors": ["publicis-groupe", "dassault-systemes"],
     "accentColor": "#7C3AED",
     "useCases": [
       {
-        "title": "Plateforme GenAI pour clients",
+        "title": "GenAI Platform for Clients",
         "status": "production",
-        "department": "Conseil",
-        "description": "Suite d'outils GenAI déployée chez +500 clients enterprise."
+        "department": "Consulting",
+        "description": "GenAI toolset deployed across 500+ enterprise clients."
       },
       {
-        "title": "Génération de code automatisée",
+        "title": "Automated Code Generation",
         "status": "production",
         "department": "IT",
-        "description": "IA de génération de code réduisant le temps de dev de 40%."
+        "description": "AI code generation reducing development time by 40%."
       },
       {
-        "title": "Résumé de documents RFP",
+        "title": "RFP Document Summarization",
         "status": "production",
-        "department": "Commercial",
-        "description": "Claude analyse et résume automatiquement les appels d'offres."
+        "department": "Sales",
+        "description": "Claude automatically analyzes and summarizes RFP documents."
       },
       {
-        "title": "Test automatisé IA",
+        "title": "AI-Driven Automated Testing",
         "status": "production",
         "department": "QA",
-        "description": "Génération automatique de cas de test avec LLM."
+        "description": "Automatic test case generation using LLMs."
       },
       {
-        "title": "GenAI pour transformation ERP",
+        "title": "GenAI for ERP Transformation",
         "status": "pilot",
         "department": "SAP",
-        "description": "Accélération des migrations SAP S/4HANA par GenAI."
+        "description": "Accelerating SAP S/4HANA migrations with GenAI."
       }
     ]
   },
   {
     "id": "publicis-groupe",
     "name": "Publicis Groupe",
-    "sector": "Médias & Pub",
+    "sector": "Media & Advertising",
     "sectorIcon": "📢",
-    "description": "Premier groupe de communication mondial avec une stratégie IA agressive.",
+    "description": "World's leading communications group with an aggressive AI strategy.",
     "score": 89,
     "trend": 28,
     "useCaseCount": 7,
-    "aiPartners": [
-      "Microsoft",
-      "OpenAI",
-      "Mistral"
-    ],
+    "aiPartners": ["Microsoft", "OpenAI", "Mistral"],
     "knownLeader": "Arthur Sadoun",
     "knownLeaderTitle": "Chairman & CEO",
-    "competitors": [
-      "vivendi",
-      "capgemini"
-    ],
+    "competitors": ["vivendi", "capgemini"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Marcel AI — plateforme interne",
+        "title": "Marcel AI — Internal Platform",
         "status": "production",
-        "department": "RH & Opérations",
-        "description": "IA connectant 100k+ employés, projets et compétences."
+        "department": "HR & Operations",
+        "description": "AI connecting 100k+ employees, projects and skills."
       },
       {
-        "title": "Génération de contenus publicitaires",
+        "title": "Advertising Content Generation",
         "status": "production",
-        "department": "Créatif",
-        "description": "Claude génère des variantes d'annonces à grande échelle."
+        "department": "Creative",
+        "description": "Claude generates ad variants at scale."
       },
       {
-        "title": "CoreAI — données first-party",
+        "title": "CoreAI — First-Party Data",
         "status": "production",
         "department": "Data",
-        "description": "Plateforme d'activation IA sur données propriétaires."
+        "description": "AI activation platform on proprietary data."
       },
       {
-        "title": "Personnalisation campagnes",
+        "title": "Campaign Personalization",
         "status": "production",
         "department": "Media",
-        "description": "IA pour adapter les messages aux segments micro-ciblés."
+        "description": "AI adapts messages to micro-targeted segments."
       },
       {
-        "title": "IA créative pour marques luxe",
+        "title": "Luxury Brand Creative AI",
         "status": "pilot",
-        "department": "Luxe",
-        "description": "LLM générant des concepts créatifs pour clients premium."
+        "department": "Luxury",
+        "description": "LLM generating creative concepts for premium clients."
       }
     ]
   },
   {
     "id": "sanofi",
     "name": "Sanofi",
-    "sector": "Pharma & Santé",
+    "sector": "Pharma & Health",
     "sectorIcon": "💊",
-    "description": "Pionnier de l'IA dans la pharmacie, avec un investissement massif annoncé.",
+    "description": "AI pioneer in pharma, with a massive announced investment.",
     "score": 86,
     "trend": 24,
     "useCaseCount": 7,
-    "aiPartners": [
-      "OpenAI",
-      "Aily Labs",
-      "AWS"
-    ],
+    "aiPartners": ["OpenAI", "Aily Labs", "AWS"],
     "knownLeader": "Houman Ashrafian",
     "knownLeaderTitle": "Chief Medical Officer & AI Lead",
-    "competitors": [
-      "essilorluxottica",
-      "eurofins-scientific"
-    ],
+    "competitors": ["essilorluxottica", "eurofins-scientific"],
     "accentColor": "#EC4899",
     "useCases": [
       {
-        "title": "Plai — plateforme IA propriétaire",
+        "title": "Plai — Proprietary AI Platform",
         "status": "production",
         "department": "R&D",
-        "description": "Plateforme GenAI déployée pour 400+ use cases internes."
+        "description": "GenAI platform deployed for 400+ internal use cases."
       },
       {
-        "title": "Accélération découverte médicaments",
+        "title": "Drug Discovery Acceleration",
         "status": "production",
         "department": "R&D",
-        "description": "LLM analyse la littérature scientifique pour identifier candidats."
+        "description": "LLM scans scientific literature to identify drug candidates."
       },
       {
-        "title": "Résumé rapports cliniques",
+        "title": "Clinical Report Summarization",
         "status": "production",
-        "department": "Médical",
-        "description": "Synthèse automatique de milliers de pages d'essais cliniques."
+        "department": "Medical",
+        "description": "Automatic synthesis of thousands of pages of clinical trials."
       },
       {
-        "title": "Optimisation essais cliniques",
+        "title": "Clinical Trial Optimization",
         "status": "pilot",
         "department": "Clinical",
-        "description": "IA pour le design et le recrutement des essais."
+        "description": "AI for trial design and patient recruitment."
       },
       {
-        "title": "Médecine personnalisée",
+        "title": "Personalized Medicine",
         "status": "announced",
         "department": "Precision Med",
-        "description": "Traitement individualisé guidé par GenAI."
+        "description": "GenAI-guided individualized treatment."
       }
     ]
   },
   {
     "id": "dassault-systemes",
     "name": "Dassault Systèmes",
-    "sector": "IT & Conseil",
+    "sector": "IT & Consulting",
     "sectorIcon": "💻",
-    "description": "Plateforme 3DEXPERIENCE intégrant nativement l'IA pour la simulation.",
+    "description": "3DEXPERIENCE platform natively integrating AI for simulation.",
     "score": 83,
     "trend": 19,
     "useCaseCount": 6,
-    "aiPartners": [
-      "NVIDIA",
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["NVIDIA", "Microsoft", "AWS"],
     "knownLeader": "Pascal Daloz",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "capgemini",
-      "stmicroelectronics"
-    ],
+    "competitors": ["capgemini", "stmicroelectronics"],
     "accentColor": "#3B82F6",
     "useCases": [
       {
-        "title": "IA dans 3DEXPERIENCE",
+        "title": "AI in 3DEXPERIENCE",
         "status": "production",
-        "department": "Produit",
-        "description": "Copilot IA natif dans la plateforme de simulation."
+        "department": "Product",
+        "description": "Native AI copilot in the simulation platform."
       },
       {
-        "title": "Jumeau numérique intelligent",
+        "title": "Intelligent Digital Twin",
         "status": "production",
-        "department": "Ingénierie",
-        "description": "IA optimise les jumeaux numériques en temps réel."
+        "department": "Engineering",
+        "description": "AI optimizes digital twins in real-time."
       },
       {
-        "title": "Génération de design paramétrique",
+        "title": "Parametric Design Generation",
         "status": "production",
-        "department": "CAO",
-        "description": "LLM génère des variantes de design mécaniques."
+        "department": "CAD",
+        "description": "LLM generates mechanical design variants."
       },
       {
-        "title": "Assistant documentation technique",
+        "title": "Technical Documentation Assistant",
         "status": "pilot",
         "department": "Documentation",
-        "description": "GenAI pour rédiger et maintenir la doc technique."
+        "description": "GenAI to write and maintain technical documentation."
       }
     ]
   },
   {
     "id": "schneider-electric",
     "name": "Schneider Electric",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "L'énergie et l'automatisation rencontrent l'IA dans une stratégie transformatrice.",
+    "description": "Energy and automation meet AI in a transformative strategy.",
     "score": 81,
     "trend": 22,
     "useCaseCount": 6,
-    "aiPartners": [
-      "Microsoft",
-      "NVIDIA",
-      "Aveva"
-    ],
+    "aiPartners": ["Microsoft", "NVIDIA", "Aveva"],
     "knownLeader": "Peter Herweck",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "legrand",
-      "saint-gobain",
-      "engie"
-    ],
+    "competitors": ["legrand", "saint-gobain", "engie"],
     "accentColor": "#10B981",
     "useCases": [
       {
-        "title": "EcoStruxure AI — gestion énergie",
+        "title": "EcoStruxure AI — Energy Management",
         "status": "production",
         "department": "Data Centers",
-        "description": "IA optimise la consommation énergétique des data centers."
+        "description": "AI optimizes energy consumption in data centers."
       },
       {
-        "title": "Maintenance prédictive usines",
+        "title": "Factory Predictive Maintenance",
         "status": "production",
-        "department": "Industrie",
-        "description": "LLM analyse capteurs pour prédire pannes équipements."
+        "department": "Industry",
+        "description": "LLM analyzes sensors to predict equipment failures."
       },
       {
-        "title": "Chatbot support technique",
+        "title": "Technical Support Chatbot",
         "status": "production",
-        "department": "Service Client",
-        "description": "Assistant IA résolvant les problèmes techniques complexes."
+        "department": "Customer Service",
+        "description": "AI assistant resolving complex technical issues."
       },
       {
-        "title": "Conception tableaux électriques",
+        "title": "Electrical Panel Design",
         "status": "pilot",
         "department": "R&D",
-        "description": "GenAI accélère la conception de systèmes électriques."
+        "description": "GenAI accelerates electrical systems design."
       }
     ]
   },
   {
     "id": "orange",
     "name": "Orange",
-    "sector": "Télécoms",
+    "sector": "Telecom",
     "sectorIcon": "📡",
-    "description": "Opérateur leader avec une stratégie IA pour réseau, client et données.",
+    "description": "Leading operator with an AI strategy for network, customer service, and data.",
     "score": 78,
     "trend": 17,
     "useCaseCount": 6,
-    "aiPartners": [
-      "Microsoft",
-      "Google",
-      "Mistral"
-    ],
+    "aiPartners": ["Microsoft", "Google", "Mistral"],
     "knownLeader": "Nicolas Blanc",
     "knownLeaderTitle": "Chief Digital & IT Officer",
-    "competitors": [
-      "bouygues",
-      "teleperformance"
-    ],
+    "competitors": ["bouygues", "teleperformance"],
     "accentColor": "#F97316",
     "useCases": [
       {
-        "title": "Orange AI — service client",
+        "title": "Orange AI — Customer Service",
         "status": "production",
-        "department": "Service Client",
-        "description": "IA traite 5M de demandes clients/mois automatiquement."
+        "department": "Customer Service",
+        "description": "AI handles 5M customer requests per month automatically."
       },
       {
-        "title": "Optimisation réseau LLM",
+        "title": "LLM Network Optimization",
         "status": "production",
-        "department": "Réseau",
-        "description": "IA prédit congestions et optimise le routage réseau."
+        "department": "Network",
+        "description": "AI predicts congestion and optimizes network routing."
       },
       {
-        "title": "Personnalisation offres",
+        "title": "Offer Personalization",
         "status": "production",
         "department": "Marketing",
-        "description": "GenAI génère des offres sur mesure pour chaque client."
+        "description": "GenAI generates tailored offers for each customer."
       },
       {
-        "title": "Détection fraudes télécom",
+        "title": "Telecom Fraud Detection",
         "status": "pilot",
-        "department": "Sécurité",
-        "description": "LLM détecte les schémas frauduleux en temps réel."
+        "department": "Security",
+        "description": "LLM detects fraudulent patterns in real-time."
       }
     ]
   },
   {
     "id": "bnp-paribas",
     "name": "BNP Paribas",
-    "sector": "Banque",
+    "sector": "Banking",
     "sectorIcon": "🏦",
-    "description": "Leader bancaire européen avec 400M€ investis dans l'IA sur 3 ans.",
+    "description": "Europe's leading bank with €400M invested in AI over 3 years.",
     "score": 76,
     "trend": 18,
     "useCaseCount": 7,
-    "aiPartners": [
-      "Microsoft",
-      "OpenAI",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "OpenAI", "AWS"],
     "knownLeader": "Jean-Laurent Bonnafé",
-    "knownLeaderTitle": "Directeur Général",
-    "competitors": [
-      "societe-generale",
-      "credit-agricole",
-      "axa"
-    ],
+    "knownLeaderTitle": "CEO",
+    "competitors": ["societe-generale", "credit-agricole", "axa"],
     "accentColor": "#006AB0",
     "useCases": [
       {
-        "title": "Résumé automatique de contrats",
+        "title": "Automated Contract Summarization",
         "status": "production",
-        "department": "Juridique",
-        "description": "Claude synthétise les contrats complexes en quelques secondes."
+        "department": "Legal",
+        "description": "Claude synthesizes complex contracts in seconds."
       },
       {
-        "title": "Conseiller virtuel bancaire",
+        "title": "Virtual Banking Advisor",
         "status": "production",
-        "department": "Service Client",
-        "description": "Chatbot IA gérant les demandes courantes clients 24/7."
+        "department": "Customer Service",
+        "description": "AI chatbot handling routine customer requests 24/7."
       },
       {
-        "title": "Génération rapports ESG",
+        "title": "ESG Report Generation",
         "status": "pilot",
         "department": "Finance",
-        "description": "LLM automatise la rédaction des reportings ESG réglementaires."
+        "description": "LLM automates drafting of regulatory ESG reports."
       },
       {
-        "title": "Détection fraude par LLM",
+        "title": "LLM Fraud Detection",
         "status": "pilot",
-        "department": "Risques",
-        "description": "IA détecte des patterns de fraude complexes en temps réel."
+        "department": "Risk",
+        "description": "AI detects complex fraud patterns in real-time."
       },
       {
-        "title": "Conformité réglementaire IA",
+        "title": "AI Regulatory Compliance",
         "status": "announced",
         "department": "Compliance",
-        "description": "Veille réglementaire automatisée avec analyse d'impact."
+        "description": "Automated regulatory monitoring with impact analysis."
       }
     ]
   },
   {
     "id": "thales",
     "name": "Thales",
-    "sector": "Aérospatiale",
+    "sector": "Aerospace",
     "sectorIcon": "✈️",
-    "description": "Plateforme Cortex AI pour la défense, l'aérospatiale et la cybersécurité.",
+    "description": "Cortex AI platform for defense, aerospace, and cybersecurity.",
     "score": 75,
     "trend": 15,
     "useCaseCount": 5,
-    "aiPartners": [
-      "NVIDIA",
-      "AWS",
-      "Microsoft"
-    ],
+    "aiPartners": ["NVIDIA", "AWS", "Microsoft"],
     "knownLeader": "Patrice Caine",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "airbus",
-      "safran",
-      "dassault-systemes"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["airbus", "safran", "dassault-systemes"],
     "accentColor": "#6366F1",
     "useCases": [
       {
-        "title": "Cortex AI — analyse défense",
+        "title": "Cortex AI — Defense Analysis",
         "status": "production",
-        "department": "Défense",
-        "description": "IA pour analyse de renseignement et aide à la décision."
+        "department": "Defense",
+        "description": "AI for intelligence analysis and decision support."
       },
       {
-        "title": "Maintenance prédictive aéro",
+        "title": "Aerospace Predictive Maintenance",
         "status": "production",
-        "department": "Aérospatiale",
-        "description": "IA prédit défaillances moteurs avant qu'elles surviennent."
+        "department": "Aerospace",
+        "description": "AI predicts engine failures before they occur."
       },
       {
-        "title": "Cybersécurité IA",
+        "title": "AI Cybersecurity",
         "status": "production",
         "department": "Cyber",
-        "description": "Détection d'intrusions par LLM en temps réel."
+        "description": "Real-time LLM-based intrusion detection."
       },
       {
-        "title": "Assistance pilote IA",
+        "title": "AI Pilot Assistance",
         "status": "pilot",
-        "department": "Avionique",
-        "description": "Copilot IA pour l'assistance cognitive des pilotes."
+        "department": "Avionics",
+        "description": "AI copilot for cognitive assistance of pilots."
       }
     ]
   },
   {
     "id": "loreal",
     "name": "L'Oréal",
-    "sector": "Luxe & Mode",
+    "sector": "Luxury & Fashion",
     "sectorIcon": "✨",
-    "description": "Beauté Tech leader mondial, pionnier de l'IA dans le luxe et la cosmétique.",
+    "description": "Global Beauty Tech leader, AI pioneer in luxury and cosmetics.",
     "score": 72,
     "trend": 20,
     "useCaseCount": 6,
-    "aiPartners": [
-      "Google",
-      "Microsoft",
-      "Modiface"
-    ],
+    "aiPartners": ["Google", "Microsoft", "Modiface"],
     "knownLeader": "Nicolas Hieronimus",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "lvmh",
-      "kering",
-      "hermes"
-    ],
+    "competitors": ["lvmh", "kering", "hermes"],
     "accentColor": "#F43F5E",
     "useCases": [
       {
-        "title": "BeautyGenius — chatbot beauté",
+        "title": "BeautyGenius — Beauty Chatbot",
         "status": "production",
         "department": "Digital",
-        "description": "Assistant IA personnalisant les recommandations beauté."
+        "description": "AI assistant personalizing beauty recommendations."
       },
       {
-        "title": "Diagnostic peau par IA",
+        "title": "AI Skin Diagnostic",
         "status": "production",
         "department": "R&D",
-        "description": "Analyse de photo pour recommandations de soin personnalisées."
+        "description": "Photo analysis for personalized skincare recommendations."
       },
       {
-        "title": "Génération descriptions produits",
+        "title": "Product Description Generation",
         "status": "production",
         "department": "Marketing",
-        "description": "LLM génère des descriptions en 30+ langues automatiquement."
+        "description": "LLM auto-generates descriptions in 30+ languages."
       },
       {
-        "title": "Essayage virtuel IA",
+        "title": "AI Virtual Try-On",
         "status": "production",
         "department": "E-Commerce",
-        "description": "Try-on IA pour maquillage et coloration cheveux."
+        "description": "AI try-on for makeup and hair color."
       },
       {
-        "title": "IA pour R&D formulations",
+        "title": "AI for R&D Formulations",
         "status": "pilot",
         "department": "R&D",
-        "description": "GenAI accélère la découverte de nouvelles formules."
+        "description": "GenAI accelerates discovery of new formulas."
       }
     ]
   },
   {
     "id": "airbus",
     "name": "Airbus",
-    "sector": "Aérospatiale",
+    "sector": "Aerospace",
     "sectorIcon": "✈️",
-    "description": "L'IA transforme la conception, la fabrication et la maintenance des avions.",
+    "description": "AI transforming aircraft design, manufacturing, and maintenance.",
     "score": 69,
     "trend": 16,
     "useCaseCount": 5,
-    "aiPartners": [
-      "Microsoft",
-      "Google",
-      "NVIDIA"
-    ],
+    "aiPartners": ["Microsoft", "Google", "NVIDIA"],
     "knownLeader": "Guillaume Faury",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "thales",
-      "safran",
-      "dassault-systemes"
-    ],
+    "competitors": ["thales", "safran", "dassault-systemes"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Conception aérodynamique IA",
+        "title": "AI Aerodynamic Design",
         "status": "production",
-        "department": "Ingénierie",
-        "description": "LLM génère et optimise des formes aérodynamiques."
+        "department": "Engineering",
+        "description": "LLM generates and optimizes aerodynamic shapes."
       },
       {
-        "title": "MRO prédictif",
+        "title": "Predictive MRO",
         "status": "production",
         "department": "Maintenance",
-        "description": "IA prédit les besoins de maintenance sur flotte mondiale."
+        "description": "AI predicts maintenance needs across global fleet."
       },
       {
-        "title": "Analyse documents certif.",
+        "title": "Certification Document Analysis",
         "status": "pilot",
         "department": "Certification",
-        "description": "GenAI analyse la conformité des dossiers de certification."
+        "description": "GenAI checks compliance of certification files."
       },
       {
-        "title": "Assemblage assisté par IA",
+        "title": "AI-Assisted Assembly",
         "status": "pilot",
         "department": "Production",
-        "description": "Guidage IA pour les techniciens d'assemblage."
+        "description": "AI guidance for assembly technicians."
       }
     ]
   },
   {
     "id": "stmicroelectronics",
     "name": "STMicroelectronics",
-    "sector": "IT & Conseil",
+    "sector": "IT & Consulting",
     "sectorIcon": "💻",
-    "description": "Fabricant de puces edge AI, au coeur de l'IA embarquée mondiale.",
+    "description": "Edge AI chip maker at the heart of global embedded AI.",
     "score": 67,
     "trend": 12,
     "useCaseCount": 4,
-    "aiPartners": [
-      "NVIDIA",
-      "Microsoft",
-      "ARM"
-    ],
+    "aiPartners": ["NVIDIA", "Microsoft", "ARM"],
     "knownLeader": "Jean-Marc Chery",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "capgemini",
-      "dassault-systemes"
-    ],
+    "competitors": ["capgemini", "dassault-systemes"],
     "accentColor": "#8B5CF6",
     "useCases": [
       {
-        "title": "Edge AI chips STM32",
+        "title": "Edge AI STM32 Chips",
         "status": "production",
         "department": "R&D",
-        "description": "Microcontrôleurs avec IA embarquée pour IoT."
+        "description": "Microcontrollers with embedded AI for IoT."
       },
       {
-        "title": "Optimisation design puces",
+        "title": "AI-Assisted Chip Design",
         "status": "pilot",
-        "department": "Conception",
-        "description": "LLM assiste les ingénieurs dans la conception de circuits."
+        "department": "Design",
+        "description": "LLM assists engineers in circuit design."
       }
     ]
   },
   {
     "id": "totalenergies",
     "name": "TotalEnergies",
-    "sector": "Énergie",
+    "sector": "Energy",
     "sectorIcon": "⚡",
-    "description": "L'IA au service de la transition énergétique et de l'optimisation opérationnelle.",
+    "description": "AI serving the energy transition and operational optimization.",
     "score": 65,
     "trend": 14,
     "useCaseCount": 5,
-    "aiPartners": [
-      "Google",
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Google", "Microsoft", "AWS"],
     "knownLeader": "Patrick Pouyanné",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "engie",
-      "air-liquide"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["engie", "air-liquide"],
     "accentColor": "#EF4444",
     "useCases": [
       {
-        "title": "Optimisation production pétrolière",
+        "title": "Oil Production Optimization",
         "status": "production",
         "department": "E&P",
-        "description": "IA optimise les paramètres de production en temps réel."
+        "description": "AI optimizes production parameters in real-time."
       },
       {
-        "title": "Prévision production solaire/éolien",
+        "title": "Solar/Wind Output Forecasting",
         "status": "production",
-        "department": "Renouvelables",
-        "description": "LLM prédit la production à 48h pour équilibrage réseau."
+        "department": "Renewables",
+        "description": "LLM predicts 48h output for grid balancing."
       },
       {
-        "title": "Maintenance raffineries IA",
+        "title": "AI Refinery Maintenance",
         "status": "pilot",
-        "department": "Raffinage",
-        "description": "Détection précoce d'anomalies sur équipements critiques."
+        "department": "Refining",
+        "description": "Early anomaly detection on critical equipment."
       },
       {
-        "title": "Trading énergie IA",
+        "title": "AI Energy Trading",
         "status": "pilot",
         "department": "Trading",
-        "description": "IA assiste les traders sur les marchés de l'énergie."
+        "description": "AI assists traders on energy markets."
       }
     ]
   },
   {
     "id": "axa",
     "name": "AXA",
-    "sector": "Assurance",
+    "sector": "Insurance",
     "sectorIcon": "🛡️",
-    "description": "Assureur mondial adoptant l'IA pour la souscription, les sinistres et la fraude.",
+    "description": "Global insurer adopting AI for underwriting, claims, and fraud.",
     "score": 62,
     "trend": 9,
     "useCaseCount": 6,
-    "aiPartners": [
-      "Microsoft",
-      "AWS",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "AWS", "Google"],
     "knownLeader": "Gaëlle Olivier",
     "knownLeaderTitle": "Chief Data Officer",
-    "competitors": [
-      "bnp-paribas",
-      "societe-generale",
-      "credit-agricole"
-    ],
+    "competitors": ["bnp-paribas", "societe-generale", "credit-agricole"],
     "accentColor": "#1D4ED8",
     "useCases": [
       {
-        "title": "Traitement automatisé sinistres",
+        "title": "Automated Claims Processing",
         "status": "production",
-        "department": "Sinistres",
-        "description": "IA traite et classe les déclarations de sinistres en quelques minutes."
+        "department": "Claims",
+        "description": "AI processes and classifies claims in minutes."
       },
       {
-        "title": "Détection fraude IA",
+        "title": "AI Fraud Detection",
         "status": "production",
-        "department": "Fraude",
-        "description": "LLM identifie des patterns frauduleux dans les dossiers."
+        "department": "Fraud",
+        "description": "LLM identifies fraudulent patterns in dossiers."
       },
       {
-        "title": "Tarification personnalisée",
+        "title": "Personalized Pricing",
         "status": "pilot",
-        "department": "Souscription",
-        "description": "IA calcule des primes individualisées en temps réel."
+        "department": "Underwriting",
+        "description": "AI calculates individualized premiums in real-time."
       },
       {
-        "title": "Chatbot conseil assurance",
+        "title": "Insurance Advisory Chatbot",
         "status": "pilot",
-        "department": "Commercial",
-        "description": "Assistant IA guidant les clients dans le choix de contrats."
+        "department": "Sales",
+        "description": "AI assistant guiding clients in contract selection."
       }
     ]
   },
@@ -680,806 +581,664 @@ export const CAC40_COMPANIES: Company[] = [
     "name": "Teleperformance",
     "sector": "Services",
     "sectorIcon": "🎧",
-    "description": "Leader BPO qui réinvente son modèle face à l'IA, avec un pivot stratégique majeur.",
+    "description": "BPO leader reinventing its model in the face of AI, with a major strategic pivot.",
     "score": 60,
     "trend": 35,
     "useCaseCount": 5,
-    "aiPartners": [
-      "Microsoft",
-      "OpenAI",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "OpenAI", "Google"],
     "knownLeader": "Daniel Julien",
     "knownLeaderTitle": "Chairman & CEO",
-    "competitors": [
-      "orange",
-      "capgemini"
-    ],
+    "competitors": ["orange", "capgemini"],
     "accentColor": "#059669",
     "useCases": [
       {
-        "title": "TP GenAI — agent augmenté",
+        "title": "TP GenAI — Augmented Agent",
         "status": "production",
-        "department": "Opérations",
-        "description": "IA assiste les agents humains en temps réel."
+        "department": "Operations",
+        "description": "AI assists human agents in real-time."
       },
       {
-        "title": "Analyse sentiment client",
+        "title": "Customer Sentiment Analysis",
         "status": "production",
         "department": "Quality",
-        "description": "LLM analyse 100% des conversations pour améliorer la qualité."
+        "description": "LLM analyzes 100% of conversations to improve quality."
       },
       {
-        "title": "Automatisation tickets N1",
+        "title": "L1 Ticket Automation",
         "status": "pilot",
         "department": "IT Support",
-        "description": "IA résout automatiquement les tickets simples."
+        "description": "AI automatically resolves simple tickets."
       }
     ]
   },
   {
     "id": "societe-generale",
     "name": "Société Générale",
-    "sector": "Banque",
+    "sector": "Banking",
     "sectorIcon": "🏦",
-    "description": "Banque en transformation digitale avec une stratégie IA centrée sur la compliance.",
+    "description": "Bank undergoing digital transformation with AI focused on compliance.",
     "score": 58,
     "trend": 11,
     "useCaseCount": 5,
-    "aiPartners": [
-      "Microsoft",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "Google"],
     "knownLeader": "Slawomir Krupa",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "bnp-paribas",
-      "credit-agricole",
-      "axa"
-    ],
+    "competitors": ["bnp-paribas", "credit-agricole", "axa"],
     "accentColor": "#DC2626",
     "useCases": [
       {
-        "title": "Compliance réglementaire IA",
+        "title": "AI Regulatory Compliance",
         "status": "production",
         "department": "Compliance",
-        "description": "IA surveille les transactions et détecte les anomalies réglementaires."
+        "description": "AI monitors transactions and detects regulatory anomalies."
       },
       {
-        "title": "Résumé recherche financière",
+        "title": "Financial Research Summarization",
         "status": "production",
         "department": "Research",
-        "description": "LLM synthétise les rapports d'analystes automatiquement."
+        "description": "LLM automatically synthesizes analyst reports."
       },
       {
-        "title": "Détection fraude IA",
+        "title": "AI Fraud Detection",
         "status": "pilot",
-        "department": "Risques",
-        "description": "Analyse comportementale des transactions par LLM."
+        "department": "Risk",
+        "description": "Behavioral analysis of transactions by LLM."
       }
     ]
   },
   {
     "id": "engie",
     "name": "Engie",
-    "sector": "Énergie",
+    "sector": "Energy",
     "sectorIcon": "⚡",
-    "description": "Transition énergétique accélérée par l'IA pour les réseaux et la consommation.",
+    "description": "AI-accelerated energy transition for grids and consumption management.",
     "score": 57,
     "trend": 13,
     "useCaseCount": 4,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Catherine MacGregor",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "totalenergies",
-      "air-liquide",
-      "schneider-electric"
-    ],
+    "competitors": ["totalenergies", "air-liquide", "schneider-electric"],
     "accentColor": "#10B981",
     "useCases": [
       {
-        "title": "Optimisation réseau gaz",
+        "title": "Gas Network Optimization",
         "status": "production",
-        "department": "Réseau",
-        "description": "IA équilibre la distribution de gaz sur le réseau national."
+        "department": "Network",
+        "description": "AI balances gas distribution across the national grid."
       },
       {
-        "title": "Prévision demande énergie",
+        "title": "Energy Demand Forecasting",
         "status": "production",
         "department": "Trading",
-        "description": "LLM prédit la consommation à court et moyen terme."
+        "description": "LLM predicts short and medium-term consumption."
       },
       {
-        "title": "Maintenance centrales IA",
+        "title": "AI Power Plant Maintenance",
         "status": "pilot",
         "department": "Production",
-        "description": "Détection anomalies sur centrales thermiques et hydrauliques."
+        "description": "Anomaly detection on thermal and hydro plants."
       }
     ]
   },
   {
     "id": "safran",
     "name": "Safran",
-    "sector": "Aérospatiale",
+    "sector": "Aerospace",
     "sectorIcon": "✈️",
-    "description": "IA pour la propulsion, la navigation et la maintenance des systèmes aéronautiques.",
+    "description": "AI for propulsion, navigation, and maintenance of aviation systems.",
     "score": 55,
     "trend": 10,
     "useCaseCount": 4,
-    "aiPartners": [
-      "NVIDIA",
-      "Microsoft"
-    ],
+    "aiPartners": ["NVIDIA", "Microsoft"],
     "knownLeader": "Olivier Andriès",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "airbus",
-      "thales"
-    ],
+    "competitors": ["airbus", "thales"],
     "accentColor": "#7C3AED",
     "useCases": [
       {
-        "title": "Maintenance prédictive moteurs",
+        "title": "Engine Predictive Maintenance",
         "status": "production",
         "department": "Propulsion",
-        "description": "IA surveille les moteurs LEAP et CFM56 en temps réel."
+        "description": "AI monitors LEAP and CFM56 engines in real-time."
       },
       {
-        "title": "Contrôle qualité IA",
+        "title": "AI Quality Control",
         "status": "pilot",
         "department": "Production",
-        "description": "Vision IA pour la détection de défauts de fabrication."
+        "description": "Vision AI for manufacturing defect detection."
       }
     ]
   },
   {
     "id": "michelin",
     "name": "Michelin",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "L'IA révolutionne la R&D matériaux et la fabrication de pneumatiques.",
+    "description": "AI revolutionizing materials R&D and tyre manufacturing.",
     "score": 53,
     "trend": 8,
     "useCaseCount": 4,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Florent Menegaux",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "stellantis",
-      "renault",
-      "schneider-electric"
-    ],
+    "competitors": ["stellantis", "renault", "schneider-electric"],
     "accentColor": "#1E40AF",
     "useCases": [
       {
-        "title": "R&D matériaux IA",
+        "title": "AI Materials R&D",
         "status": "production",
         "department": "R&D",
-        "description": "IA accélère la découverte de nouvelles compositions de gomme."
+        "description": "AI accelerates discovery of new rubber compounds."
       },
       {
-        "title": "Optimisation processus fabrication",
+        "title": "Manufacturing Process Optimization",
         "status": "pilot",
         "department": "Production",
-        "description": "GenAI optimise les paramètres de vulcanisation."
+        "description": "GenAI optimizes vulcanization parameters."
       }
     ]
   },
   {
     "id": "danone",
     "name": "Danone",
-    "sector": "Distribution",
+    "sector": "Retail",
     "sectorIcon": "🛒",
-    "description": "L'IA optimise la supply chain, le marketing et le développement produit.",
+    "description": "AI optimizing supply chain, marketing, and product development.",
     "score": 51,
     "trend": 9,
     "useCaseCount": 4,
-    "aiPartners": [
-      "Microsoft",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "Google"],
     "knownLeader": "Antoine de Saint-Affrique",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "carrefour",
-      "pernod-ricard"
-    ],
+    "competitors": ["carrefour", "pernod-ricard"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Optimisation supply chain",
+        "title": "Supply Chain Optimization",
         "status": "production",
         "department": "Supply Chain",
-        "description": "IA réduit les ruptures de stock et optimise les flux."
+        "description": "AI reduces stockouts and optimizes flows."
       },
       {
-        "title": "Innovation produit IA",
+        "title": "AI Product Innovation",
         "status": "pilot",
         "department": "R&D",
-        "description": "LLM génère des concepts de nouveaux produits alimentaires."
+        "description": "LLM generates concepts for new food products."
       }
     ]
   },
   {
     "id": "lvmh",
     "name": "LVMH",
-    "sector": "Luxe & Mode",
+    "sector": "Luxury & Fashion",
     "sectorIcon": "✨",
-    "description": "Le géant du luxe explore l'IA pour l'expérience client et la créativité.",
+    "description": "Luxury giant exploring AI for customer experience and creativity.",
     "score": 49,
     "trend": 7,
     "useCaseCount": 4,
-    "aiPartners": [
-      "Microsoft",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "Google"],
     "knownLeader": "Bernard Arnault",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "hermes",
-      "kering",
-      "loreal"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["hermes", "kering", "loreal"],
     "accentColor": "#B45309",
     "useCases": [
       {
-        "title": "Personnalisation e-commerce luxe",
+        "title": "Luxury E-Commerce Personalization",
         "status": "production",
         "department": "Digital",
-        "description": "IA personnalise l'expérience d'achat en ligne pour chaque client."
+        "description": "AI personalizes the online shopping experience for each client."
       },
       {
-        "title": "Traçabilité et authenticité produit",
+        "title": "Product Traceability & Authenticity",
         "status": "pilot",
         "department": "Operations",
-        "description": "LLM et blockchain pour certifier l'authenticité des produits."
+        "description": "LLM and blockchain to certify product authenticity."
       },
       {
-        "title": "Assistance créative designers",
+        "title": "Designer Creative Assistance",
         "status": "pilot",
-        "department": "Créatif",
-        "description": "GenAI supporte les créateurs dans l'exploration de tendances."
+        "department": "Creative",
+        "description": "GenAI supports creators in exploring trends."
       }
     ]
   },
   {
     "id": "vinci",
     "name": "Vinci",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "Construction et concessions transformées par l'IA et la digitalisation.",
+    "description": "Construction and concessions transformed by AI and digitalization.",
     "score": 47,
     "trend": 6,
     "useCaseCount": 3,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Xavier Huillard",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "bouygues",
-      "saint-gobain"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["bouygues", "saint-gobain"],
     "accentColor": "#F59E0B",
     "useCases": [
       {
-        "title": "IA pour la sécurité chantiers",
+        "title": "AI Construction Site Safety",
         "status": "production",
         "department": "HSE",
-        "description": "Analyse vidéo IA pour détecter les risques de sécurité en temps réel."
+        "description": "AI video analysis to detect safety risks in real-time."
       },
       {
-        "title": "Gestion intelligente autoroutes",
+        "title": "Intelligent Motorway Management",
         "status": "pilot",
-        "department": "Autoroutes",
-        "description": "IA optimise les flux et anticipe les incidents sur le réseau."
+        "department": "Highways",
+        "description": "AI optimizes traffic flow and anticipates incidents."
       }
     ]
   },
   {
     "id": "accor",
     "name": "Accor",
-    "sector": "Distribution",
+    "sector": "Retail",
     "sectorIcon": "🛒",
-    "description": "L'hôtellerie mondiale investit l'IA pour l'expérience client et les opérations.",
+    "description": "Global hospitality investing in AI for customer experience and operations.",
     "score": 45,
     "trend": 8,
     "useCaseCount": 3,
-    "aiPartners": [
-      "Microsoft",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "Google"],
     "knownLeader": "Sébastien Bazin",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "danone",
-      "carrefour"
-    ],
+    "competitors": ["danone", "carrefour"],
     "accentColor": "#DC2626",
     "useCases": [
       {
-        "title": "Concierge IA hôtels",
+        "title": "Hotel AI Concierge",
         "status": "production",
-        "department": "Service Client",
-        "description": "Assistant IA 24/7 pour les demandes des hôtes."
+        "department": "Customer Service",
+        "description": "24/7 AI assistant for guest requests."
       },
       {
-        "title": "Revenue management IA",
+        "title": "AI Revenue Management",
         "status": "pilot",
         "department": "Revenue",
-        "description": "IA optimise les prix en temps réel selon la demande."
+        "description": "AI optimizes prices in real-time based on demand."
       }
     ]
   },
   {
     "id": "kering",
     "name": "Kering",
-    "sector": "Luxe & Mode",
+    "sector": "Luxury & Fashion",
     "sectorIcon": "✨",
-    "description": "Groupe de luxe explorant l'IA générative pour la création et la personnalisation.",
+    "description": "Luxury group exploring generative AI for creation and personalization.",
     "score": 44,
     "trend": 11,
     "useCaseCount": 3,
-    "aiPartners": [
-      "Google",
-      "Microsoft"
-    ],
+    "aiPartners": ["Google", "Microsoft"],
     "knownLeader": "François-Henri Pinault",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "lvmh",
-      "hermes",
-      "loreal"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["lvmh", "hermes", "loreal"],
     "accentColor": "#7C3AED",
     "useCases": [
       {
-        "title": "IA pour trend forecasting",
+        "title": "AI Trend Forecasting",
         "status": "production",
-        "department": "Créatif",
-        "description": "Analyse tendances mondiales par LLM pour orienter les collections."
+        "department": "Creative",
+        "description": "LLM analyzes global trends to guide collections."
       },
       {
-        "title": "Personnalisation Gucci/YSL",
+        "title": "Gucci/YSL Personalization",
         "status": "pilot",
         "department": "Retail",
-        "description": "IA recommande des produits personnalisés en boutique."
+        "description": "AI recommends personalized products in-store."
       }
     ]
   },
   {
     "id": "stellantis",
     "name": "Stellantis",
-    "sector": "Automobile",
+    "sector": "Automotive",
     "sectorIcon": "🚗",
-    "description": "Groupe automobile en transformation, l'IA au service du véhicule connecté.",
+    "description": "Automotive group in transformation, AI serving the connected vehicle.",
     "score": 43,
     "trend": 5,
     "useCaseCount": 3,
-    "aiPartners": [
-      "AWS",
-      "Foxconn"
-    ],
+    "aiPartners": ["AWS", "Foxconn"],
     "knownLeader": "Carlos Tavares",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "renault",
-      "michelin"
-    ],
+    "competitors": ["renault", "michelin"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Assistant vocal IA embarqué",
+        "title": "Embedded AI Voice Assistant",
         "status": "production",
         "department": "Connected Car",
-        "description": "IA intégrée dans STLA Brain pour les véhicules connectés."
+        "description": "AI integrated in STLA Brain for connected vehicles."
       },
       {
-        "title": "Maintenance prédictive flotte",
+        "title": "Fleet Predictive Maintenance",
         "status": "pilot",
         "department": "After-Sales",
-        "description": "IA anticipe les besoins de maintenance pour les flottes."
+        "description": "AI anticipates maintenance needs for fleets."
       }
     ]
   },
   {
     "id": "renault",
     "name": "Renault",
-    "sector": "Automobile",
+    "sector": "Automotive",
     "sectorIcon": "🚗",
-    "description": "L'alliance automobile use l'IA pour le véhicule autonome et la fabrication.",
+    "description": "Automotive alliance using AI for autonomous vehicles and manufacturing.",
     "score": 43,
     "trend": 7,
     "useCaseCount": 3,
-    "aiPartners": [
-      "Google",
-      "Qualcomm"
-    ],
+    "aiPartners": ["Google", "Qualcomm"],
     "knownLeader": "Luca de Meo",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "stellantis",
-      "michelin"
-    ],
+    "competitors": ["stellantis", "michelin"],
     "accentColor": "#F59E0B",
     "useCases": [
       {
-        "title": "Ampere — software vehicle IA",
+        "title": "Ampere — AI Software Vehicle",
         "status": "production",
         "department": "Software",
-        "description": "Plateforme software defined vehicle avec IA embarquée."
+        "description": "Software-defined vehicle platform with embedded AI."
       },
       {
-        "title": "Chatbot après-vente",
+        "title": "After-Sales Chatbot",
         "status": "pilot",
-        "department": "Service Client",
-        "description": "IA assiste les clients pour le diagnostic et la maintenance."
+        "department": "Customer Service",
+        "description": "AI assists customers with diagnostics and maintenance."
       }
     ]
   },
   {
     "id": "hermes",
     "name": "Hermès",
-    "sector": "Luxe & Mode",
+    "sector": "Luxury & Fashion",
     "sectorIcon": "✨",
-    "description": "Adoption sélective de l'IA préservant l'artisanat et l'exclusivité de la marque.",
+    "description": "Selective AI adoption preserving craftsmanship and brand exclusivity.",
     "score": 41,
     "trend": 4,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Axel Dumas",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "lvmh",
-      "kering",
-      "loreal"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["lvmh", "kering", "loreal"],
     "accentColor": "#B45309",
     "useCases": [
       {
-        "title": "Lutte anti-contrefaçon IA",
+        "title": "AI Anti-Counterfeiting",
         "status": "production",
-        "department": "Sécurité",
-        "description": "IA détecte les faux produits sur les marchés en ligne."
+        "department": "Security",
+        "description": "AI detects counterfeit products on online marketplaces."
       },
       {
-        "title": "Gestion stocks intelligente",
+        "title": "Intelligent Inventory Management",
         "status": "pilot",
         "department": "Supply Chain",
-        "description": "IA optimise les stocks en respectant l'exclusivité produit."
+        "description": "AI optimizes stock while maintaining product exclusivity."
       }
     ]
   },
   {
     "id": "carrefour",
     "name": "Carrefour",
-    "sector": "Distribution",
+    "sector": "Retail",
     "sectorIcon": "🛒",
-    "description": "Le retail digital exploite l'IA pour la supply chain et l'expérience en magasin.",
+    "description": "Digital retail leveraging AI for supply chain and in-store experience.",
     "score": 39,
     "trend": 6,
     "useCaseCount": 3,
-    "aiPartners": [
-      "Microsoft",
-      "Google"
-    ],
+    "aiPartners": ["Microsoft", "Google"],
     "knownLeader": "Alexandre Bompard",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "danone",
-      "accor"
-    ],
+    "competitors": ["danone", "accor"],
     "accentColor": "#2563EB",
     "useCases": [
       {
-        "title": "IA anti-gaspillage alimentaire",
+        "title": "AI Food Waste Reduction",
         "status": "production",
-        "department": "Logistique",
-        "description": "LLM prédit les dates limites et optimise la rotation des produits."
+        "department": "Logistics",
+        "description": "LLM predicts expiry dates and optimizes product rotation."
       },
       {
-        "title": "Chatbot produits GPT",
+        "title": "GPT Product Chatbot",
         "status": "production",
-        "department": "E-commerce",
-        "description": "IA répond aux questions produits pour 10M clients en ligne."
+        "department": "E-Commerce",
+        "description": "AI answers product questions for 10M online customers."
       }
     ]
   },
   {
     "id": "legrand",
     "name": "Legrand",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "Infrastructure électrique intelligente avec des premières applications IA.",
+    "description": "Smart electrical infrastructure with early AI applications.",
     "score": 37,
     "trend": 5,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Benoît Coquart",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "schneider-electric",
-      "vinci"
-    ],
+    "competitors": ["schneider-electric", "vinci"],
     "accentColor": "#7C3AED",
     "useCases": [
       {
-        "title": "Bâtiments intelligents IA",
+        "title": "AI Smart Buildings",
         "status": "production",
         "department": "Smart Building",
-        "description": "IA optimise la consommation électrique des bâtiments."
+        "description": "AI optimizes electrical consumption in buildings."
       }
     ]
   },
   {
     "id": "veolia",
     "name": "Veolia",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "IA pour la gestion de l'eau, des déchets et de l'énergie durable.",
+    "description": "AI for water, waste, and sustainable energy management.",
     "score": 35,
     "trend": 7,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Estelle Brachlianoff",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "engie",
-      "totalenergies"
-    ],
+    "competitors": ["engie", "totalenergies"],
     "accentColor": "#059669",
     "useCases": [
       {
-        "title": "Détection fuites réseau eau",
+        "title": "Water Network Leak Detection",
         "status": "production",
-        "department": "Eau",
-        "description": "IA analyse les données capteurs pour détecter les fuites."
+        "department": "Water",
+        "description": "AI analyzes sensor data to detect leaks."
       },
       {
-        "title": "Optimisation tri déchets",
+        "title": "Waste Sorting Optimization",
         "status": "pilot",
-        "department": "Recyclage",
-        "description": "Vision IA pour améliorer le tri et le recyclage."
+        "department": "Recycling",
+        "description": "Vision AI to improve sorting and recycling."
       }
     ]
   },
   {
     "id": "credit-agricole",
     "name": "Crédit Agricole",
-    "sector": "Banque",
+    "sector": "Banking",
     "sectorIcon": "🏦",
-    "description": "Première banque française de détail en démarrage sur l'IA générative.",
+    "description": "France's largest retail bank at early stage in generative AI.",
     "score": 34,
     "trend": 8,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Philippe Brassac",
-    "knownLeaderTitle": "PDG",
-    "competitors": [
-      "bnp-paribas",
-      "societe-generale",
-      "axa"
-    ],
+    "knownLeaderTitle": "Chairman & CEO",
+    "competitors": ["bnp-paribas", "societe-generale", "axa"],
     "accentColor": "#15803D",
     "useCases": [
       {
-        "title": "Assistant conseillers IA",
+        "title": "AI Advisor Assistant",
         "status": "pilot",
-        "department": "Réseau",
-        "description": "IA assiste les conseillers dans la recommandation produits."
+        "department": "Network",
+        "description": "AI assists advisors in product recommendations."
       }
     ]
   },
   {
     "id": "air-liquide",
     "name": "Air Liquide",
-    "sector": "Énergie",
+    "sector": "Energy",
     "sectorIcon": "⚡",
-    "description": "Gaz industriels et santé explorent l'IA pour l'optimisation opérationnelle.",
+    "description": "Industrial gases and healthcare exploring AI for operational optimization.",
     "score": 32,
     "trend": 5,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "François Jackow",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "engie",
-      "totalenergies"
-    ],
+    "competitors": ["engie", "totalenergies"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Optimisation production hydrogène",
+        "title": "Hydrogen Production Optimization",
         "status": "pilot",
         "department": "Production",
-        "description": "IA optimise les paramètres des électrolyseurs."
+        "description": "AI optimizes electrolyzer parameters."
       }
     ]
   },
   {
     "id": "saint-gobain",
     "name": "Saint-Gobain",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "Matériaux de construction et solutions habitat avec quelques initiatives IA.",
+    "description": "Building materials and habitat solutions with a few AI initiatives.",
     "score": 31,
     "trend": 4,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Benoît Bazin",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "vinci",
-      "schneider-electric"
-    ],
+    "competitors": ["vinci", "schneider-electric"],
     "accentColor": "#DC2626",
     "useCases": [
       {
-        "title": "Conception de bâtiments IA",
+        "title": "AI Building Design",
         "status": "pilot",
         "department": "Architecture",
-        "description": "IA assiste les architectes dans la conception de bâtiments durables."
+        "description": "AI assists architects in designing sustainable buildings."
       }
     ]
   },
   {
     "id": "bouygues",
     "name": "Bouygues",
-    "sector": "Télécoms",
+    "sector": "Telecom",
     "sectorIcon": "📡",
-    "description": "Conglomérat télécoms-construction avec des premières expérimentations IA.",
+    "description": "Telecom-construction conglomerate with early AI experiments.",
     "score": 29,
     "trend": 5,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Martin Bouygues",
-    "knownLeaderTitle": "Président",
-    "competitors": [
-      "orange",
-      "vinci"
-    ],
+    "knownLeaderTitle": "Chairman",
+    "competitors": ["orange", "vinci"],
     "accentColor": "#1D4ED8",
     "useCases": [
       {
-        "title": "Chatbot Bouygues Telecom",
+        "title": "Bouygues Telecom Chatbot",
         "status": "production",
-        "department": "Service Client",
-        "description": "IA répond aux demandes basiques des abonnés."
+        "department": "Customer Service",
+        "description": "AI handles basic subscriber requests."
       }
     ]
   },
   {
     "id": "pernod-ricard",
     "name": "Pernod Ricard",
-    "sector": "Distribution",
+    "sector": "Retail",
     "sectorIcon": "🛒",
-    "description": "Spiritueux et vins explorent l'IA pour le marketing et la distribution.",
+    "description": "Spirits and wines exploring AI for marketing and distribution.",
     "score": 27,
     "trend": 4,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Alexandre Ricard",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "danone",
-      "lvmh"
-    ],
+    "competitors": ["danone", "lvmh"],
     "accentColor": "#B45309",
     "useCases": [
       {
-        "title": "Personnalisation marketing",
+        "title": "Marketing Personalization",
         "status": "pilot",
         "department": "Marketing",
-        "description": "LLM génère des messages marketing personnalisés par marché."
+        "description": "LLM generates personalized marketing messages per market."
       }
     ]
   },
   {
     "id": "arcelormittal",
     "name": "ArcelorMittal",
-    "sector": "Industrie",
+    "sector": "Industry",
     "sectorIcon": "⚙️",
-    "description": "Acier et mining avec des applications IA pour la production et la qualité.",
+    "description": "Steel and mining with AI applications for production and quality.",
     "score": 25,
     "trend": 3,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Aditya Mittal",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "saint-gobain",
-      "michelin"
-    ],
+    "competitors": ["saint-gobain", "michelin"],
     "accentColor": "#F97316",
     "useCases": [
       {
-        "title": "Contrôle qualité acier IA",
+        "title": "AI Steel Quality Control",
         "status": "pilot",
         "department": "Production",
-        "description": "Vision IA pour détecter les défauts sur les bobines d'acier."
+        "description": "Vision AI to detect defects on steel coils."
       }
     ]
   },
   {
     "id": "essilorluxottica",
     "name": "EssilorLuxottica",
-    "sector": "Pharma & Santé",
+    "sector": "Pharma & Health",
     "sectorIcon": "💊",
-    "description": "Optique mondiale avec des applications IA émergentes pour le diagnostic visuel.",
+    "description": "Global optics with emerging AI applications for visual diagnostics.",
     "score": 23,
     "trend": 3,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Francesco Milleri",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "sanofi",
-      "eurofins-scientific"
-    ],
+    "competitors": ["sanofi", "eurofins-scientific"],
     "accentColor": "#7C3AED",
     "useCases": [
       {
-        "title": "Diagnostic visuel IA",
+        "title": "AI Visual Diagnostics",
         "status": "pilot",
-        "department": "Médical",
-        "description": "IA détecte les anomalies oculaires sur images de fond d'oeil."
+        "department": "Medical",
+        "description": "AI detects ocular anomalies on fundus images."
       }
     ]
   },
   {
     "id": "vivendi",
     "name": "Vivendi",
-    "sector": "Médias & Pub",
+    "sector": "Media & Advertising",
     "sectorIcon": "📢",
-    "description": "Groupe médias en restructuration avec quelques pilotes IA dans la création.",
+    "description": "Media group under restructuring with a few AI pilots in content creation.",
     "score": 24,
     "trend": 6,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft"
-    ],
+    "aiPartners": ["Microsoft"],
     "knownLeader": "Yannick Bolloré",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "publicis-groupe"
-    ],
+    "competitors": ["publicis-groupe"],
     "accentColor": "#1D4ED8",
     "useCases": [
       {
-        "title": "IA pour sous-titrage Canal+",
+        "title": "AI Subtitling for Canal+",
         "status": "pilot",
         "department": "Production",
-        "description": "LLM génère des sous-titres automatiques pour les contenus."
+        "description": "LLM auto-generates subtitles for content."
       }
     ]
   },
@@ -1488,27 +1247,21 @@ export const CAC40_COMPANIES: Company[] = [
     "name": "Worldline",
     "sector": "Services",
     "sectorIcon": "🎧",
-    "description": "Paiements et services financiers avec des applications IA pour la fraude.",
+    "description": "Payments and financial services with AI applications for fraud.",
     "score": 30,
     "trend": 4,
     "useCaseCount": 2,
-    "aiPartners": [
-      "Microsoft",
-      "AWS"
-    ],
+    "aiPartners": ["Microsoft", "AWS"],
     "knownLeader": "Gilles Grapinet",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "bnp-paribas",
-      "societe-generale"
-    ],
+    "competitors": ["bnp-paribas", "societe-generale"],
     "accentColor": "#0EA5E9",
     "useCases": [
       {
-        "title": "Détection fraude paiements",
+        "title": "Payment Fraud Detection",
         "status": "production",
-        "department": "Risques",
-        "description": "IA analyse les transactions en temps réel pour détecter la fraude."
+        "department": "Risk",
+        "description": "AI analyzes transactions in real-time to detect fraud."
       }
     ]
   },
@@ -1517,50 +1270,44 @@ export const CAC40_COMPANIES: Company[] = [
     "name": "Unibail-Rodamco-Westfield",
     "sector": "Services",
     "sectorIcon": "🎧",
-    "description": "Immobilier commercial avec des premières explorations de l'IA.",
+    "description": "Commercial real estate with early AI explorations.",
     "score": 21,
     "trend": 3,
     "useCaseCount": 1,
     "aiPartners": [],
     "knownLeader": "Jean-Marie Tritant",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "accor",
-      "vinci"
-    ],
+    "competitors": ["accor", "vinci"],
     "accentColor": "#6366F1",
     "useCases": [
       {
-        "title": "Optimisation flux visiteurs",
+        "title": "Visitor Flow Optimization",
         "status": "pilot",
-        "department": "Opérations",
-        "description": "IA optimise les parcours visiteurs dans les centres commerciaux."
+        "department": "Operations",
+        "description": "AI optimizes visitor routes in shopping malls."
       }
     ]
   },
   {
     "id": "eurofins-scientific",
     "name": "Eurofins Scientific",
-    "sector": "Pharma & Santé",
+    "sector": "Pharma & Health",
     "sectorIcon": "💊",
-    "description": "Laboratoires d'analyse scientifique avec quelques applications IA pour la R&D.",
+    "description": "Scientific testing laboratories with a few AI applications for R&D.",
     "score": 19,
     "trend": 2,
     "useCaseCount": 1,
     "aiPartners": [],
     "knownLeader": "Gilles Martin",
     "knownLeaderTitle": "CEO",
-    "competitors": [
-      "sanofi",
-      "essilorluxottica"
-    ],
+    "competitors": ["sanofi", "essilorluxottica"],
     "accentColor": "#059669",
     "useCases": [
       {
-        "title": "Interprétation résultats labo",
+        "title": "Lab Results Interpretation",
         "status": "pilot",
-        "department": "Laboratoire",
-        "description": "LLM aide les biologistes à interpréter les résultats d'analyses."
+        "department": "Laboratory",
+        "description": "LLM helps biologists interpret analysis results."
       }
     ]
   }

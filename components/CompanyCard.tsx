@@ -96,7 +96,7 @@ export default function CompanyCard({ company, index, rank }: Props) {
       {/* CTA */}
       <div className="mt-4 flex items-center gap-1 text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity"
         style={{ color: company.accentColor }}>
-        <span>Analyser avec Claude</span>
+        <span>Analyze with Claude</span>
         <ArrowRight size={12} />
       </div>
     </motion.div>

@@ -47,7 +47,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
 
       if (res.status === 429) {
         const data = await res.json() as { retryAfter?: number };
-        setCurrentText(`_Limite de requêtes atteinte. Réessayez dans ${data.retryAfter ?? 60} secondes._`);
+        setCurrentText(`_Rate limit reached. Please retry in ${data.retryAfter ?? 60} seconds._`);
         return;
       }
       if (!res.ok || !res.body) throw new Error("Stream failed");
@@ -61,7 +61,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
       }
     } catch (err: unknown) {
       if (err instanceof Error && err.name !== "AbortError") {
-        setCurrentText("_Erreur de génération. Vérifiez vos clés API._");
+        setCurrentText("_Generation error. Please check your API keys._");
       }
     } finally {
       setLoading(false);
@@ -101,8 +101,8 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                 <Sparkles size={16} className="text-white" />
               </div>
               <div>
-                <h2 className="text-white font-bold text-sm">Proposer une démo</h2>
-                <p className="text-xs" style={{ color: "#94A3B8" }}>{company.name} · Propulsé par Claude</p>
+                <h2 className="text-white font-bold text-sm">Propose a Demo</h2>
+                <p className="text-xs" style={{ color: "#94A3B8" }}>{company.name} · Powered by Claude</p>
               </div>
             </div>
             <button onClick={onClose} className="w-8 h-8 rounded-lg flex items-center justify-center transition-colors hover:opacity-70"
@@ -114,7 +114,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
           {/* Use case selector */}
           <div className="px-6 pt-4 pb-3">
             <label className="text-xs font-medium mb-2 block" style={{ color: "#94A3B8" }}>
-              Use case cible:
+              Target use case:
             </label>
             <div className="flex flex-wrap gap-2">
               {company.useCases.map((uc) => (
@@ -137,8 +137,8 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
           {/* Tabs */}
           <div className="flex px-6 gap-2" style={{ borderBottom: "1px solid rgba(45,45,80,0.8)" }}>
             {[
-              { id: "demo" as Tab, label: "Proposition de démo", Icon: Zap },
-              { id: "email" as Tab, label: "Email de prospection", Icon: Mail },
+              { id: "demo" as Tab, label: "Demo Proposal", Icon: Zap },
+              { id: "email" as Tab, label: "Prospecting Email", Icon: Mail },
             ].map(({ id, label, Icon }) => (
               <button
                 key={id}
@@ -161,8 +161,8 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
               <div className="rounded-xl p-6 text-center" style={{ background: "rgba(15,15,26,0.5)", border: "1px dashed rgba(45,45,80,0.8)" }}>
                 <p className="text-sm mb-4" style={{ color: "#94A3B8" }}>
                   {tab === "demo"
-                    ? `Claude va générer une proposition de démo personnalisée pour ${company.name} sur "${selectedUseCase}".`
-                    : `Claude va rédiger un email personnalisé pour ${company.knownLeader || "le décideur IA"} de ${company.name}.`
+                    ? `Claude will generate a personalized demo proposal for ${company.name} on "${selectedUseCase}".`
+                    : `Claude will draft a personalized email to ${company.knownLeader || "the AI decision-maker"} at ${company.name}.`
                   }
                 </p>
                 <button
@@ -171,7 +171,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                   style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
                 >
                   {loading ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
-                  Générer avec Claude
+                  Generate with Claude
                   <ArrowRight size={14} />
                 </button>
               </div>
@@ -186,12 +186,12 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                       <div className="w-2 h-2 rounded-full bg-green-500" />
                     )}
                     <span className="text-xs" style={{ color: "#94A3B8" }}>
-                      {loading ? "Génération en cours..." : "Prêt à utiliser"}
+                      {loading ? "Generating..." : "Ready to use"}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
                     <button onClick={generate} className="text-xs hover:opacity-70 transition-opacity" style={{ color: "#94A3B8" }}>
-                      Regénérer
+                      Regenerate
                     </button>
                     <button
                       onClick={copyToClipboard}
@@ -199,7 +199,7 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
                       style={{ background: copied ? "rgba(16,185,129,0.2)" : "rgba(124,58,237,0.2)", color: copied ? "#10B981" : "#A855F7" }}
                     >
                       {copied ? <Check size={11} /> : <Copy size={11} />}
-                      {copied ? "Copié !" : "Copier"}
+                      {copied ? "Copied!" : "Copy"}
                     </button>
                   </div>
                 </div>
@@ -214,10 +214,10 @@ export default function DemoBuilderModal({ company, onClose }: Props) {
           {/* Footer */}
           <div className="px-6 pb-4 flex items-center justify-between">
             <p className="text-xs" style={{ color: "#64748B" }}>
-              Généré par Claude · {new Date().toLocaleDateString("fr-FR")}
+              Generated by Claude · {new Date().toLocaleDateString("en-US")}
             </p>
             <button onClick={onClose} className="text-xs hover:opacity-70 transition-opacity" style={{ color: "#94A3B8" }}>
-              Fermer
+              Close
             </button>
           </div>
         </motion.div>

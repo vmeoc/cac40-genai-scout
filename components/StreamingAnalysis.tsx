@@ -36,7 +36,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
 
       if (res.status === 429) {
         const data = await res.json() as { retryAfter?: number };
-        setText(`_Limite de requêtes atteinte. Réessayez dans ${data.retryAfter ?? 60} secondes._`);
+        setText(`_Rate limit reached. Please retry in ${data.retryAfter ?? 60} seconds._`);
         setDone(true);
         return;
       }
@@ -53,7 +53,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
       setDone(true);
     } catch (err: unknown) {
       if (err instanceof Error && err.name !== "AbortError") {
-        setText((prev) => prev + "\n\n_Erreur lors de l'analyse. Vérifiez les clés API._");
+        setText((prev) => prev + "\n\n_Analysis error. Please check your API keys._");
       }
     } finally {
       setLoading(false);
@@ -74,16 +74,16 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
           style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.3))", border: "1px solid rgba(124,58,237,0.3)" }}>
           <span className="text-2xl">🤖</span>
         </div>
-        <h3 className="text-white font-semibold mb-2">Analyse IA en direct</h3>
+        <h3 className="text-white font-semibold mb-2">Live AI Analysis</h3>
         <p className="text-sm mb-6" style={{ color: "#94A3B8" }}>
-          Claude va analyser les actualités et communications de {companyName} pour évaluer leur positionnement GenAI.
+          Claude will analyze the latest news and communications from {companyName} to assess their GenAI positioning.
         </p>
         <button
           onClick={startAnalysis}
           className="px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90 glow-accent"
           style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
         >
-          ▶ Lancer l&apos;analyse Claude
+          ▶ Start Claude Analysis
         </button>
       </div>
     );
@@ -101,14 +101,14 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
             <div className="w-2 h-2 rounded-full bg-green-500" />
           )}
           <span className="text-xs font-medium" style={{ color: "#94A3B8" }}>
-            {loading ? "Claude analyse en temps réel..." : "Analyse terminée"}
+            {loading ? "Claude analyzing in real-time..." : "Analysis complete"}
           </span>
         </div>
         {done && (
           <button onClick={startAnalysis} className="flex items-center gap-1 text-xs hover:opacity-80 transition-opacity"
             style={{ color: "#7C3AED" }}>
             <RefreshCw size={12} />
-            <span>Relancer</span>
+            <span>Re-run</span>
           </button>
         )}
       </div>
@@ -117,7 +117,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
       <div className="px-4 py-2 flex items-center gap-2 flex-wrap"
         style={{ background: "rgba(15,15,26,0.5)", borderBottom: "1px solid rgba(45,45,80,0.5)" }}>
         <span className="text-xs" style={{ color: "#94A3B8" }}>Sources:</span>
-        {["Actualités récentes", "Rapports annuels", "Communiqués presse", "LinkedIn"].map((s) => (
+        {["Recent News", "Annual Reports", "Press Releases", "LinkedIn"].map((s) => (
           <span key={s} className="flex items-center gap-1 text-xs px-2 py-0.5 rounded"
             style={{ background: "rgba(45,45,80,0.5)", color: "#94A3B8" }}>
             <ExternalLink size={9} />
@@ -138,7 +138,7 @@ export default function StreamingAnalysis({ companySlug, companyName }: Props) {
         ) : (
           <div className="flex items-center gap-3 py-4">
             <Loader2 size={16} className="animate-spin" style={{ color: "#7C3AED" }} />
-            <span className="text-sm" style={{ color: "#94A3B8" }}>Recherche d&apos;informations...</span>
+            <span className="text-sm" style={{ color: "#94A3B8" }}>Searching for information...</span>
           </div>
         )}
         <div ref={bottomRef} />

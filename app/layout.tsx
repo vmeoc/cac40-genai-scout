@@ -14,10 +14,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "CAC40 GenAI Scout — Powered by Claude",
-  description: "Identifiez les meilleurs prospects GenAI dans le CAC40. Analyse en temps réel des stratégies IA, powered by Anthropic Claude.",
+  description: "Identify the top GenAI prospects in the CAC40. Real-time analysis of AI strategies, powered by Anthropic Claude.",
   openGraph: {
     title: "CAC40 GenAI Scout",
-    description: "Intelligence commerciale GenAI pour les 40 plus grandes entreprises françaises.",
+    description: "GenAI commercial intelligence for the 40 largest French companies.",
   },
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen antialiased">
         {children}
       </body>

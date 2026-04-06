@@ -1,7 +1,7 @@
 import React from "react";
 
-// Section headers that trigger the special Anthropic callout styling
-const ANTHROPIC_SECTION_RE = /opportunit[eé]s?\s+(pour|anthropic)|recommandation\s+anthropic/i;
+// Section headers that trigger the special Anthropic callout styling (English + French)
+const ANTHROPIC_SECTION_RE = /anthropic\s+opportunit|opportunit[iy]\s+(for|pour|anthropic)|recommandation\s+anthropic/i;
 
 export function renderMarkdownLine(
   line: string,
@@ -57,7 +57,7 @@ export function renderMarkdownLine(
   }
 
   // SUBJECT line (for emails)
-  if (line.startsWith("SUBJECT:") || line.startsWith("Objet:")) {
+  if (line.startsWith("SUBJECT:")) {
     return React.createElement("div", {
       key,
       className: "font-bold text-sm py-2 px-3 rounded-lg mb-2",

@@ -12,35 +12,35 @@ import DemoBuilderModal from "@/components/DemoBuilderModal";
 import { getCompanyBySlug } from "@/lib/cac40-data";
 import { getScoreColor, getScoreLabel } from "@/lib/utils";
 
-type Tab = "analyse" | "use-cases" | "contacts" | "concurrents";
+type Tab = "analysis" | "use-cases" | "contacts" | "competitors";
 
 const SCORE_DIMS: { label: string; tooltip: string }[] = [
   {
-    label: "Budget IA",
-    tooltip: "Niveau d'investissement IA annoncé publiquement : budget R&D, acquisitions de startups IA, montants publiés dans les rapports annuels et communiqués de presse.",
+    label: "AI Budget",
+    tooltip: "Level of publicly announced AI investment: R&D budget, AI startup acquisitions, amounts published in annual reports and press releases.",
   },
   {
-    label: "Use cases prod",
-    tooltip: "Nombre de cas d'usage GenAI réellement déployés en production (vs pilotes ou annonces). Source : rapports annuels, interviews dirigeants, presse spécialisée.",
+    label: "Prod use cases",
+    tooltip: "Number of GenAI use cases actually deployed in production (vs. pilots or announcements). Source: annual reports, executive interviews, trade press.",
   },
   {
-    label: "Partenariats",
-    tooltip: "Profondeur des partenariats avec les éditeurs IA (OpenAI, Anthropic, Mistral, Google, AWS...). Un partenariat signé = 1 point, intégration produit = 2 points, co-développement = 3+ points.",
+    label: "Partnerships",
+    tooltip: "Depth of partnerships with AI vendors (OpenAI, Anthropic, Mistral, Google, AWS…). Signed partnership = 1 pt, product integration = 2 pts, co-development = 3+ pts.",
   },
   {
-    label: "Recrutement",
-    tooltip: "Vélocité de recrutement IA : croissance des offres d'emploi ML/AI sur LinkedIn et Indeed, annonces de création d'équipes dédiées, embauches de profils AI executives.",
+    label: "Recruiting",
+    tooltip: "AI hiring velocity: growth in ML/AI job postings on LinkedIn and Indeed, announcements of dedicated team creation, hiring of AI executive profiles.",
   },
   {
     label: "Communication",
-    tooltip: "Fréquence et profondeur de la communication publique GenAI : mentions dans les earnings calls, keynotes, articles de blog techniques, annonces de produits IA.",
+    tooltip: "Frequency and depth of public GenAI communication: mentions in earnings calls, keynotes, technical blog posts, AI product announcements.",
   },
 ];
 
 export default function CompanyPage() {
   const params = useParams() as { slug: string };
   const router = useRouter();
-  const [tab, setTab] = useState<Tab>("analyse");
+  const [tab, setTab] = useState<Tab>("analysis");
   const [showModal, setShowModal] = useState(false);
   const [hoveredDim, setHoveredDim] = useState<number | null>(null);
 
@@ -49,8 +49,8 @@ export default function CompanyPage() {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ background: "#0F0F1A" }}>
         <div className="text-center">
-          <p className="text-white mb-4">Entreprise introuvable</p>
-          <button onClick={() => router.push("/")} className="text-sm" style={{ color: "#7C3AED" }}>← Retour</button>
+          <p className="text-white mb-4">Company not found</p>
+          <button onClick={() => router.push("/")} className="text-sm" style={{ color: "#7C3AED" }}>← Back</button>
         </div>
       </div>
     );
@@ -68,10 +68,10 @@ export default function CompanyPage() {
   ];
 
   const tabs: { id: Tab; label: string; Icon: React.ElementType }[] = [
-    { id: "analyse", label: "Analyse IA", Icon: Brain },
+    { id: "analysis", label: "AI Analysis", Icon: Brain },
     { id: "use-cases", label: "Use Cases", Icon: Sparkles },
     { id: "contacts", label: "Contacts", Icon: Users },
-    { id: "concurrents", label: "Concurrents", Icon: BarChart3 },
+    { id: "competitors", label: "Competitors", Icon: BarChart3 },
   ];
 
   return (
@@ -88,7 +88,7 @@ export default function CompanyPage() {
           style={{ color: "#94A3B8" }}
         >
           <ArrowLeft size={16} />
-          Retour au dashboard
+          Back to dashboard
         </button>
 
         {/* Company header */}
@@ -115,8 +115,8 @@ export default function CompanyPage() {
               <div className="mb-4 rounded-lg p-3" style={{ background: "rgba(15,15,26,0.4)", border: "1px solid rgba(45,45,80,0.5)" }}>
                 <p className="text-sm leading-relaxed mb-2" style={{ color: "#CBD5E1" }}>{company.description}</p>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-xs" style={{ color: "#64748B" }}>Sources :</span>
-                  {["Rapport annuel 2024", "Presse spécialisée", "Communiqués IR", "LinkedIn"].map((s) => (
+                  <span className="text-xs" style={{ color: "#64748B" }}>Sources:</span>
+                  {["Annual Report 2024", "Specialized Press", "IR Releases", "LinkedIn"].map((s) => (
                     <span key={s} className="text-xs px-2 py-0.5 rounded"
                       style={{ background: "rgba(45,45,80,0.5)", color: "#94A3B8" }}>
                       {s}
@@ -129,12 +129,12 @@ export default function CompanyPage() {
               <div className="mb-4">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-1.5">
-                    <span className="text-sm font-semibold" style={{ color: scoreColor }}>Score GenAI · {label}</span>
+                    <span className="text-sm font-semibold" style={{ color: scoreColor }}>GenAI Score · {label}</span>
                     <div className="relative group">
                       <Info size={12} style={{ color: "#64748B" }} className="cursor-help" />
                       <div className="absolute left-0 bottom-6 z-10 hidden group-hover:block w-64 rounded-lg p-3 text-xs shadow-xl pointer-events-none"
                         style={{ background: "#1A1A2E", border: "1px solid rgba(124,58,237,0.3)", color: "#CBD5E1" }}>
-                        Score composite 0-100 calculé à partir de 5 dimensions : budget IA, use cases en production, partenariats éditeurs, vélocité de recrutement et communication publique. Basé sur des données publiques 2024-2025.
+                        Composite 0-100 score calculated from 5 dimensions: AI budget, production use cases, vendor partnerships, hiring velocity, and public communication. Based on public data 2024-2025.
                       </div>
                     </div>
                   </div>
@@ -173,7 +173,7 @@ export default function CompanyPage() {
                     {hoveredDim === i && (
                       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 w-52 rounded-lg p-2.5 text-xs shadow-xl pointer-events-none"
                         style={{ background: "#1A1A2E", border: "1px solid rgba(124,58,237,0.3)", color: "#CBD5E1" }}>
-                        <strong className="text-white block mb-1">{dim.label} : {dimScores[i]}/5</strong>
+                        <strong className="text-white block mb-1">{dim.label}: {dimScores[i]}/5</strong>
                         {dim.tooltip}
                       </div>
                     )}
@@ -187,12 +187,12 @@ export default function CompanyPage() {
               <div className="rounded-xl p-4 space-y-3" style={{ background: "rgba(15,15,26,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
                 <div className="flex justify-between text-sm">
                   <div className="flex items-center gap-1">
-                    <span style={{ color: "#94A3B8" }}>Tendance</span>
+                    <span style={{ color: "#94A3B8" }}>Trend</span>
                     <div className="relative group">
                       <Info size={11} style={{ color: "#475569" }} className="cursor-help" />
                       <div className="absolute right-0 bottom-5 z-10 hidden group-hover:block w-56 rounded-lg p-2.5 text-xs shadow-xl pointer-events-none"
                         style={{ background: "#1A1A2E", border: "1px solid rgba(124,58,237,0.3)", color: "#CBD5E1" }}>
-                        Variation estimée du score GenAI entre 2024 et 2025 (en %). Basé sur le rythme des annonces publiques, embauches et partenariats sur 12 mois glissants.
+                        Estimated change in GenAI score between 2024 and 2025 (%). Based on the pace of public announcements, hires and partnerships over a 12-month rolling window.
                       </div>
                     </div>
                   </div>
@@ -208,13 +208,13 @@ export default function CompanyPage() {
                 </div>
                 {company.knownLeader && (
                   <div className="flex justify-between text-sm">
-                    <span style={{ color: "#94A3B8" }}>Décideur IA</span>
+                    <span style={{ color: "#94A3B8" }}>AI Decision Maker</span>
                     <span className="text-white font-medium text-right text-xs">{company.knownLeader}</span>
                   </div>
                 )}
                 {company.aiPartners.length > 0 && (
                   <div>
-                    <span className="text-sm block mb-1.5" style={{ color: "#94A3B8" }}>Partenaires IA</span>
+                    <span className="text-sm block mb-1.5" style={{ color: "#94A3B8" }}>AI Partners</span>
                     <div className="flex flex-wrap gap-1">
                       {company.aiPartners.map((p) => (
                         <span key={p} className="text-xs px-1.5 py-0.5 rounded"
@@ -233,7 +233,7 @@ export default function CompanyPage() {
                 style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
               >
                 <Star size={15} />
-                Proposer une démo Claude
+                Propose a Claude demo
               </button>
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function CompanyPage() {
         </div>
 
         {/* Tab content — always mounted to preserve state across tab switches */}
-        <div style={{ display: tab === "analyse" ? "block" : "none" }}>
+        <div style={{ display: tab === "analysis" ? "block" : "none" }}>
           <StreamingAnalysis companySlug={company.id} companyName={company.name} />
         </div>
         <div style={{ display: tab === "use-cases" ? "block" : "none" }}>
@@ -268,7 +268,7 @@ export default function CompanyPage() {
         <div style={{ display: tab === "contacts" ? "block" : "none" }}>
           <ContactFinder companySlug={company.id} companyName={company.name} knownLeader={company.knownLeader} knownLeaderTitle={company.knownLeaderTitle} />
         </div>
-        <div style={{ display: tab === "concurrents" ? "block" : "none" }}>
+        <div style={{ display: tab === "competitors" ? "block" : "none" }}>
           <CompetitorMatrix companySlug={company.id} companyName={company.name} />
         </div>
       </div>

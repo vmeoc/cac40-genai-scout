@@ -1,33 +1,33 @@
 export function buildAnalysisPrompt(companyName: string, sector: string, searchResults: string): string {
   return `You are a GenAI market intelligence analyst. Analyze ${companyName} (sector: ${sector}).
 
-IMPORTANT: Be concise. Total response must stay under 1800 tokens.
+IMPORTANT: Be concise. Total response must stay under 1800 tokens. Write in English.
 
 Search results:
 ${searchResults}
 
-Write in French. Follow this structure exactly:
+Follow this structure exactly:
 
-## Score GenAI: [X]/100
+## GenAI Score: [X]/100
 
-### Résumé stratégique
+### Strategic Summary
 [2 short paragraphs max — key positioning and top 2-3 facts with sources]
 
-### 💡 Opportunités pour Anthropic
+### 💡 Anthropic Opportunities
 [4 numbered axes, each 2-3 sentences + one concrete proposition. No padding.]
 
-1. **Axe Core-Métier** : [2-3 sentences on the specific Claude capability addressing their main challenge. 1-sentence concrete proposition.]
+1. **Core Business** : [2-3 sentences on the specific Claude capability addressing their main challenge. 1-sentence concrete proposition.]
 
-2. **Axe Developer & API** : [2-3 sentences on how dev/data teams could use Claude API. 1-sentence deliverable.]
+2. **Developer & API** : [2-3 sentences on how dev/data teams could use Claude API. 1-sentence deliverable.]
 
-3. **Axe Productivité Individuelle** : [2-3 sentences on employee augmentation specific to their sector roles.]
+3. **Individual Productivity** : [2-3 sentences on employee augmentation specific to their sector roles.]
 
-4. **Prochaine étape** : [1-2 sentences: one concrete action, relevant contact name, 2-week timeline.]
+4. **Next Step** : [1-2 sentences: one concrete action, relevant contact name, 2-week timeline.]
 
-### Investissements & Use cases clés
+### Key Investments & Use Cases
 [5 bullet points max covering key investments and confirmed use cases with dates]
 
-### Points d'attention
+### Watch Points
 [3 bullet points max — key gaps and risks for their GenAI strategy]
 
 Be specific, cite sources when available, stay professional and insightful.`;
@@ -67,7 +67,7 @@ Include 3-6 contacts if possible. If you find ${knownLeader || "the known leader
 export function buildCompetitorsPrompt(companyName: string, sector: string, competitors: string[], searchResults: string): string {
   const competitorList = competitors.join(", ");
   const jsonTemplate = `{
-  "dimensions": ["Budget IA", "Use cases prod", "Partenariats", "Recrutement IA", "Communication"],
+  "dimensions": ["AI Budget", "Prod use cases", "Partnerships", "Recruiting", "Communication"],
   "companies": [
     {"name": "COMPANY_NAME", "scores": [3,3,3,3,3], "topUseCase": "main use case", "aiPartner": "main partner"},
     {"name": "COMPETITOR_NAME", "scores": [2,2,2,2,2], "topUseCase": "main use case", "aiPartner": "main partner"}
@@ -77,7 +77,7 @@ export function buildCompetitorsPrompt(companyName: string, sector: string, comp
     "1 sentence on another competitor dynamic",
     "1 sentence on cross-competitor pattern"
   ],
-  "opportunity": "**Core-metier** : 2 sentences.\\n\\n**Dev & API** : 2 sentences.\\n\\n**Productivite** : 2 sentences.\\n\\n**Prochaine etape** : 1 concrete action."
+  "opportunity": "**Core Business** : 2 sentences.\\n\\n**Dev & API** : 2 sentences.\\n\\n**Productivity** : 2 sentences.\\n\\n**Next step** : 1 concrete action."
 }`;
 
   return `You are a competitive intelligence analyst for GenAI adoption.
@@ -105,28 +105,28 @@ Company: ${companyName} (${sector})
 Target use case: ${topUseCase}
 Key contact: ${contactName}
 
-Create a compelling demo proposal in French with this structure:
+Create a compelling demo proposal in English with this structure:
 
-## Démo proposée: [Creative memorable title]
+## Proposed Demo: [Creative memorable title]
 
-### Concept en 30 secondes
+### 30-second concept
 [One powerful sentence describing the demo]
 
-### Architecture de la démo
+### Demo architecture
 [3-4 concrete steps showing how Claude would be used, with specific Claude API features]
-Étape 1: [Input] → Claude [specific capability] → [Output]
-Étape 2: ...
+Step 1: [Input] → Claude [specific capability] → [Output]
+Step 2: ...
 
-### ROI estimé
-- Temps de traitement: [Before] → [After with Claude]
-- Économies potentielles: [Estimated annual savings]
-- Délai de déploiement: [Timeline from PoC to production]
+### Estimated ROI
+- Processing time: [Before] → [After with Claude]
+- Potential savings: [Estimated annual savings]
+- Deployment timeline: [Timeline from PoC to production]
 
-### Pourquoi Claude plutôt que GPT-4?
+### Why Claude over GPT-4?
 [3 specific technical reasons relevant to this use case: context window, safety, multilingual, etc.]
 
-### Prochaines étapes
-1. [First concrete step — e.g. "Workshop technique de 2h avec vos équipes data"]
+### Next steps
+1. [First concrete step — e.g. "2-hour technical workshop with your data teams"]
 2. [Second step — PoC timeline]
 3. [Third step — production path]
 
@@ -134,7 +134,7 @@ Keep it concise, specific, and exciting. Focus on Claude's unique strengths for 
 }
 
 export function buildEmailPrompt(companyName: string, contactName: string, contactTitle: string, useCase: string, demoDescription: string): string {
-  return `Write a professional prospecting email in French to ${contactName}, ${contactTitle} at ${companyName}.
+  return `Write a professional prospecting email in English to ${contactName}, ${contactTitle} at ${companyName}.
 
 Context:
 - They are working on: ${useCase}

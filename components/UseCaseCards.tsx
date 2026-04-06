@@ -4,9 +4,9 @@ import { UseCase } from "@/lib/cac40-data";
 import { CheckCircle, Clock, Megaphone } from "lucide-react";
 
 const STATUS_CONFIG = {
-  production: { label: "EN PROD", color: "#10B981", bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.3)", Icon: CheckCircle },
-  pilot: { label: "PILOTE", color: "#F59E0B", bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.3)", Icon: Clock },
-  announced: { label: "ANNONCÉ", color: "#06B6D4", bg: "rgba(6,182,212,0.1)", border: "rgba(6,182,212,0.3)", Icon: Megaphone },
+  production: { label: "LIVE", color: "#10B981", bg: "rgba(16,185,129,0.1)", border: "rgba(16,185,129,0.3)", Icon: CheckCircle },
+  pilot: { label: "PILOT", color: "#F59E0B", bg: "rgba(245,158,11,0.1)", border: "rgba(245,158,11,0.3)", Icon: Clock },
+  announced: { label: "ANNOUNCED", color: "#06B6D4", bg: "rgba(6,182,212,0.1)", border: "rgba(6,182,212,0.3)", Icon: Megaphone },
 };
 
 interface Props {
@@ -34,7 +34,7 @@ export default function UseCaseCards({ useCases, companyName }: Props) {
           ) : null;
         })}
         <span className="ml-auto text-xs" style={{ color: "#94A3B8" }}>
-          Basé sur sources publiques · {companyName}
+          Based on public sources · {companyName}
         </span>
       </div>
 

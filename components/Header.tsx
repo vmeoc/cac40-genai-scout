@@ -51,7 +51,7 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs"
               style={{ background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.3)", color: "#06B6D4" }}>
               <Zap size={12} className="fill-current" />
-              <span>40 entreprises analysées</span>
+              <span>40 companies analyzed</span>
             </div>
 
           </div>

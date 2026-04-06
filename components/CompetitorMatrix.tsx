@@ -32,12 +32,12 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       const res = await fetch(`/api/competitors?slug=${companySlug}`);
       if (res.status === 429) {
         const body = await res.json() as { retryAfter?: number };
-        setError(`Limite de requêtes atteinte. Réessayez dans ${body.retryAfter ?? 60}s.`);
+        setError(`Rate limit reached. Please retry in ${body.retryAfter ?? 60}s.`);
         setDone(true);
         return;
       }
       if (!res.ok) {
-        setError("Erreur serveur. Veuillez réessayer.");
+        setError("Server error. Please try again.");
         setDone(true);
         return;
       }
@@ -45,7 +45,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       setData(json);
       setDone(true);
     } catch {
-      setError("Erreur réseau. Veuillez réessayer.");
+      setError("Network error. Please try again.");
       setDone(true);
     } finally {
       setLoading(false);
@@ -57,16 +57,16 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       <div className="rounded-xl p-8 text-center"
         style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
         <BarChart3 size={32} className="mx-auto mb-3" style={{ color: "#06B6D4" }} />
-        <h3 className="text-white font-semibold mb-2">Analyse concurrentielle</h3>
+        <h3 className="text-white font-semibold mb-2">Competitive Analysis</h3>
         <p className="text-sm mb-6" style={{ color: "#94A3B8" }}>
-          Comparez {companyName} à ses concurrents sectoriels sur 5 dimensions GenAI.
+          Compare {companyName} against its sector competitors across 5 GenAI dimensions.
         </p>
         <button
           onClick={analyze}
           className="px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90"
           style={{ background: "linear-gradient(135deg, #0E7490, #06B6D4)" }}
         >
-          Analyser les concurrents →
+          Analyze competitors →
         </button>
       </div>
     );
@@ -77,7 +77,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       <div className="rounded-xl p-8 flex items-center justify-center gap-3"
         style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
         <Loader2 size={20} className="animate-spin" style={{ color: "#06B6D4" }} />
-        <span style={{ color: "#94A3B8" }}>Analyse concurrentielle en cours...</span>
+        <span style={{ color: "#94A3B8" }}>Running competitive analysis...</span>
       </div>
     );
   }
@@ -87,11 +87,11 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       <div className="rounded-xl p-6 text-center"
         style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
         <p className="text-sm mb-4" style={{ color: "#94A3B8" }}>
-          {error || "Données incomplètes reçues. Veuillez relancer l'analyse."}
+          {error || "Incomplete data received. Please re-run the analysis."}
         </p>
         <button onClick={() => { setDone(false); setData(null); setError(""); }}
           className="text-sm px-4 py-2 rounded-lg" style={{ background: "rgba(124,58,237,0.2)", color: "#A855F7" }}>
-          Réessayer →
+          Retry →
         </button>
       </div>
     );
@@ -107,9 +107,9 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
     <div className="space-y-5">
       {/* Radar chart */}
       <div className="rounded-xl p-4" style={{ background: "rgba(30,30,53,0.6)", border: "1px solid rgba(45,45,80,0.8)" }}>
-        <h4 className="text-sm font-semibold text-white mb-1">Radar comparatif — 5 dimensions GenAI</h4>
+        <h4 className="text-sm font-semibold text-white mb-1">Comparative Radar — 5 GenAI Dimensions</h4>
         <p className="text-xs mb-4" style={{ color: "#64748B" }}>
-          Budget IA · Use cases prod · Partenariats · Recrutement · Communication publique (score 0-5)
+          AI Budget · Prod use cases · Partnerships · Recruiting · Public communication (score 0-5)
         </p>
         <ResponsiveContainer width="100%" height={300}>
           <RadarChart data={radarData}>
@@ -135,9 +135,9 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       <div className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(45,45,80,0.8)" }}>
         <div className="grid text-xs font-semibold px-4 py-2"
           style={{ gridTemplateColumns: "1fr 1.4fr 1fr", background: "rgba(30,30,53,0.8)", color: "#64748B" }}>
-          <span>Entreprise</span>
-          <span>Use case phare</span>
-          <span>Partenaire IA</span>
+          <span>Company</span>
+          <span>Top use case</span>
+          <span>AI Partner</span>
         </div>
         {data.companies.map((c, i) => (
           <motion.div
@@ -165,7 +165,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       {/* Insights */}
       {data.insights?.length > 0 && (
         <div className="rounded-xl p-4" style={{ background: "rgba(30,30,53,0.6)", border: "1px solid rgba(45,45,80,0.8)" }}>
-          <h4 className="text-sm font-semibold text-white mb-3">Insights clés concurrentiels</h4>
+          <h4 className="text-sm font-semibold text-white mb-3">Key Competitive Insights</h4>
           {data.insights.map((ins, i) => (
             <div key={i} className="flex gap-2.5 py-1.5 text-sm">
               <span className="mt-0.5 shrink-0" style={{ color: "#06B6D4" }}>▸</span>
@@ -183,7 +183,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
             style={{ borderBottom: "1px solid rgba(124,58,237,0.2)", background: "rgba(124,58,237,0.1)" }}>
             <Lightbulb size={15} style={{ color: "#A855F7" }} />
             <h4 className="text-sm font-bold" style={{ color: "#A855F7" }}>
-              Opportunité Anthropic pour {companyName}
+              Anthropic Opportunity for {companyName}
             </h4>
           </div>
           <div className="p-4 space-y-1">

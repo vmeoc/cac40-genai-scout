@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Loader2, BarChart3 } from "lucide-react";
+import { Loader2, BarChart3, Lightbulb } from "lucide-react";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, Legend } from "recharts";
+import { renderMarkdown } from "@/lib/render-markdown";
 
 interface CompetitorData {
   dimensions: string[];
@@ -62,7 +63,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       <div className="rounded-xl p-8 flex items-center justify-center gap-3"
         style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
         <Loader2 size={20} className="animate-spin" style={{ color: "#06B6D4" }} />
-        <span style={{ color: "#94A3B8" }}>Analyse en cours...</span>
+        <span style={{ color: "#94A3B8" }}>Analyse concurrentielle en cours...</span>
       </div>
     );
   }
@@ -79,7 +80,10 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
     <div className="space-y-5">
       {/* Radar chart */}
       <div className="rounded-xl p-4" style={{ background: "rgba(30,30,53,0.6)", border: "1px solid rgba(45,45,80,0.8)" }}>
-        <h4 className="text-sm font-semibold text-white mb-4">Radar comparatif (5 dimensions)</h4>
+        <h4 className="text-sm font-semibold text-white mb-1">Radar comparatif — 5 dimensions GenAI</h4>
+        <p className="text-xs mb-4" style={{ color: "#64748B" }}>
+          Budget IA · Use cases prod · Partenariats · Recrutement · Communication publique (score 0-5)
+        </p>
         <ResponsiveContainer width="100%" height={300}>
           <RadarChart data={radarData}>
             <PolarGrid stroke="rgba(45,45,80,0.8)" />
@@ -91,8 +95,8 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
                 dataKey={c.name}
                 stroke={COLORS[i % COLORS.length]}
                 fill={COLORS[i % COLORS.length]}
-                fillOpacity={0.1}
-                strokeWidth={2}
+                fillOpacity={i === 0 ? 0.15 : 0.07}
+                strokeWidth={i === 0 ? 2.5 : 1.5}
               />
             ))}
             <Legend wrapperStyle={{ fontSize: "11px", color: "#94A3B8" }} />
@@ -103,7 +107,7 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       {/* Companies table */}
       <div className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(45,45,80,0.8)" }}>
         <div className="grid text-xs font-semibold px-4 py-2"
-          style={{ gridTemplateColumns: "1fr 1fr 1fr", background: "rgba(30,30,53,0.8)", color: "#94A3B8" }}>
+          style={{ gridTemplateColumns: "1fr 1.4fr 1fr", background: "rgba(30,30,53,0.8)", color: "#64748B" }}>
           <span>Entreprise</span>
           <span>Use case phare</span>
           <span>Partenaire IA</span>
@@ -116,12 +120,12 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
             transition={{ delay: i * 0.08 }}
             className="grid items-center px-4 py-3 text-sm"
             style={{
-              gridTemplateColumns: "1fr 1fr 1fr",
-              background: i === 0 ? "rgba(124,58,237,0.05)" : "transparent",
+              gridTemplateColumns: "1fr 1.4fr 1fr",
+              background: i === 0 ? "rgba(124,58,237,0.07)" : "transparent",
               borderTop: "1px solid rgba(45,45,80,0.5)",
             }}
           >
-            <span className={`font-medium ${i === 0 ? "text-white" : ""}`} style={{ color: i === 0 ? "#A855F7" : "#CBD5E1" }}>
+            <span className="font-medium" style={{ color: i === 0 ? "#A855F7" : "#CBD5E1" }}>
               {i === 0 ? "★ " : ""}{c.name}
             </span>
             <span className="text-xs" style={{ color: "#94A3B8" }}>{c.topUseCase}</span>
@@ -134,24 +138,30 @@ export default function CompetitorMatrix({ companySlug, companyName }: Props) {
       {/* Insights */}
       {data.insights?.length > 0 && (
         <div className="rounded-xl p-4" style={{ background: "rgba(30,30,53,0.6)", border: "1px solid rgba(45,45,80,0.8)" }}>
-          <h4 className="text-sm font-semibold text-white mb-3">Insights clés</h4>
+          <h4 className="text-sm font-semibold text-white mb-3">Insights clés concurrentiels</h4>
           {data.insights.map((ins, i) => (
-            <div key={i} className="flex gap-2 py-1 text-sm">
-              <span style={{ color: "#7C3AED" }}>▸</span>
+            <div key={i} className="flex gap-2.5 py-1.5 text-sm">
+              <span className="mt-0.5 shrink-0" style={{ color: "#06B6D4" }}>▸</span>
               <span style={{ color: "#CBD5E1" }}>{ins}</span>
             </div>
           ))}
         </div>
       )}
 
-      {/* Anthropic opportunity */}
+      {/* Anthropic opportunity — rendered as markdown */}
       {data.opportunity && (
-        <div className="rounded-xl p-4"
-          style={{ background: "rgba(124,58,237,0.08)", border: "1px solid rgba(124,58,237,0.25)" }}>
-          <h4 className="text-sm font-semibold mb-2" style={{ color: "#A855F7" }}>
-            💡 Opportunité Anthropic identifiée
-          </h4>
-          <p className="text-sm" style={{ color: "#CBD5E1" }}>{data.opportunity}</p>
+        <div className="rounded-xl overflow-hidden"
+          style={{ background: "rgba(124,58,237,0.06)", border: "1px solid rgba(124,58,237,0.3)" }}>
+          <div className="flex items-center gap-2 px-4 py-3"
+            style={{ borderBottom: "1px solid rgba(124,58,237,0.2)", background: "rgba(124,58,237,0.1)" }}>
+            <Lightbulb size={15} style={{ color: "#A855F7" }} />
+            <h4 className="text-sm font-bold" style={{ color: "#A855F7" }}>
+              Opportunité Anthropic pour {companyName}
+            </h4>
+          </div>
+          <div className="p-4 space-y-1">
+            {renderMarkdown(data.opportunity)}
+          </div>
         </div>
       )}
     </div>

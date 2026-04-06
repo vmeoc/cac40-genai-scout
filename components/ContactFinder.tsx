@@ -15,6 +15,8 @@ interface Contact {
 interface Props {
   companySlug: string;
   companyName: string;
+  knownLeader?: string;
+  knownLeaderTitle?: string;
 }
 
 const CONFIDENCE_CONFIG = {

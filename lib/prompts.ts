@@ -1,40 +1,36 @@
 export function buildAnalysisPrompt(companyName: string, sector: string, searchResults: string): string {
-  return `You are a GenAI market intelligence analyst. Analyze the GenAI strategy of ${companyName} (sector: ${sector}) based on the following search results.
+  return `You are a GenAI market intelligence analyst. Analyze ${companyName} (sector: ${sector}).
+
+IMPORTANT: Be concise. Total response must stay under 1800 tokens.
 
 Search results:
 ${searchResults}
 
-Provide a comprehensive analysis in French with the following sections IN THIS EXACT ORDER — do not skip any section:
+Write in French. Follow this structure exactly:
 
 ## Score GenAI: [X]/100
 
 ### Résumé stratégique
-[2-3 paragraph executive summary of their GenAI positioning]
+[2 short paragraphs max — key positioning and top 2-3 facts with sources]
 
 ### 💡 Opportunités pour Anthropic
-WRITE THIS SECTION COMPLETELY BEFORE MOVING ON. It must contain exactly 4 numbered sub-sections:
+[4 numbered axes, each 2-3 sentences + one concrete proposition. No padding.]
 
-1. **Axe Core-Métier** : [Specific Claude capability that directly addresses their main GenAI challenge. Reference their actual initiatives. 3-5 sentences + concrete proposition.]
+1. **Axe Core-Métier** : [2-3 sentences on the specific Claude capability addressing their main challenge. 1-sentence concrete proposition.]
 
-2. **Axe Developer & API** : [How their engineering/data teams could use Claude API to build internal tools, automate workflows, accelerate delivery. 3-5 sentences + concrete proposition.]
+2. **Axe Developer & API** : [2-3 sentences on how dev/data teams could use Claude API. 1-sentence deliverable.]
 
-3. **Axe Productivité Individuelle** : [How Claude could augment each employee in their sector — legal, finance, HR, marketing, operations. Be sector-specific. 3-5 sentences.]
+3. **Axe Productivité Individuelle** : [2-3 sentences on employee augmentation specific to their sector roles.]
 
-4. **Prochaine étape recommandée** : [One single concrete action to propose this week: a specific workshop, PoC, or use case to demo. Name the right contact and the 2-week deliverable.]
+4. **Prochaine étape** : [1-2 sentences: one concrete action, relevant contact name, 2-week timeline.]
 
-### Investissements et signaux clés
-[Bullet points of key investments, partnerships, announcements with dates when available]
-
-### Use cases identifiés
-[Bullet points of specific GenAI use cases in production or development]
-
-### Avantages concurrentiels
-[Their GenAI strengths vs sector competitors]
+### Investissements & Use cases clés
+[5 bullet points max covering key investments and confirmed use cases with dates]
 
 ### Points d'attention
-[Risks, gaps, or areas where they could need help — be honest and specific]
+[3 bullet points max — key gaps and risks for their GenAI strategy]
 
-Be specific, cite sources from the search results when possible, and keep the tone professional and insightful.`;
+Be specific, cite sources when available, stay professional and insightful.`;
 }
 
 export function buildContactsPrompt(companyName: string, sector: string, searchResults: string, knownLeader?: string, knownLeaderTitle?: string): string {
@@ -69,39 +65,37 @@ Include 3-6 contacts if possible. If you find ${knownLeader || "the known leader
 }
 
 export function buildCompetitorsPrompt(companyName: string, sector: string, competitors: string[], searchResults: string): string {
-  return `You are a competitive intelligence analyst specializing in GenAI adoption.
+  const competitorList = competitors.join(", ");
+  const jsonTemplate = `{
+  "dimensions": ["Budget IA", "Use cases prod", "Partenariats", "Recrutement IA", "Communication"],
+  "companies": [
+    {"name": "COMPANY_NAME", "scores": [3,3,3,3,3], "topUseCase": "main use case", "aiPartner": "main partner"},
+    {"name": "COMPETITOR_NAME", "scores": [2,2,2,2,2], "topUseCase": "main use case", "aiPartner": "main partner"}
+  ],
+  "insights": [
+    "1 sentence on what competitor X does and what gap it reveals for COMPANY_NAME",
+    "1 sentence on another competitor dynamic",
+    "1 sentence on cross-competitor pattern"
+  ],
+  "opportunity": "**Core-metier** : 2 sentences.\\n\\n**Dev & API** : 2 sentences.\\n\\n**Productivite** : 2 sentences.\\n\\n**Prochaine etape** : 1 concrete action."
+}`;
 
-IMPORTANT: You are analyzing ${companyName}'s COMPETITORS. ${companyName} is the CLIENT we want to sell to — do NOT write insights about ${companyName} itself. All insights must be about the competitors (${competitors.join(", ")}) and what they reveal as OPPORTUNITIES FOR ${companyName}.
+  return `You are a competitive intelligence analyst for GenAI adoption.
+Compare ${companyName} vs ${competitorList} in the ${sector} sector.
 
-Compare ${companyName} with its competitors: ${competitors.join(", ")} in the ${sector} sector.
+IMPORTANT:
+- Keep entire JSON response under 1000 tokens. Use short strings.
+- Do NOT write insights about ${companyName} itself — insights must discuss competitors only.
+- First company in the array MUST be ${companyName}.
+- Return ONLY valid JSON, no text outside the JSON object.
 
 Search results:
 ${searchResults}
 
-Return a JSON object with this structure:
-{
-  "dimensions": ["Budget IA", "Use cases prod", "Partenariats", "Recrutement IA", "Communication"],
-  "companies": [
-    {
-      "name": "Company Name",
-      "scores": [score1, score2, score3, score4, score5],
-      "topUseCase": "Their most advanced GenAI use case",
-      "aiPartner": "Primary AI partner"
-    }
-  ],
-  "insights": [
-    "Competitor insight 1: what a specific competitor is doing and what gap this reveals for ${companyName}",
-    "Competitor insight 2: another competitor dynamic relevant to ${companyName}'s positioning",
-    "Competitor insight 3: cross-competitor pattern or threat ${companyName} should be aware of"
-  ],
-  "opportunity": "## Opportunité Anthropic pour ${companyName}\\n\\n**Angle core-métier** : [Specific Claude use case matching ${companyName}'s business]\\n\\n**Angle développeurs & API** : [How ${companyName}'s dev teams could use Claude API to build internal tools, automate workflows, create AI-powered products]\\n\\n**Angle productivité individuelle** : [How Claude could augment each employee in ${companyName} — legal, finance, HR, marketing — specific to their sector]\\n\\n**Angle automatisation & sécurité** : [Process automation, compliance monitoring, anomaly detection relevant to ${companyName}'s context]\\n\\n**Prochaine étape recommandée** : [1 concrete action to propose to ${companyName} this week]"
-}
+Return JSON matching this structure (replace placeholder values with real data):
+${jsonTemplate}
 
-RULES:
-- Scores are 0-5. Be objective and base scores on available evidence.
-- The first company in the "companies" array MUST be ${companyName}.
-- Insights must discuss competitors, NOT ${companyName}.
-- The opportunity field should be rich, multi-angle, and formatted in Markdown with the exact structure above.`;
+Scores are 0-5 based on evidence. Valid JSON only, no trailing commas, no comments.`;
 }
 
 export function buildDemoPrompt(companyName: string, sector: string, topUseCase: string, contactName: string): string {

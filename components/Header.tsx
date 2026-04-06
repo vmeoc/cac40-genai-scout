@@ -1,0 +1,43 @@
+"use client";
+import Link from "next/link";
+import { Brain, Zap } from "lucide-react";
+
+export default function Header() {
+  return (
+    <header className="sticky top-0 z-50 glass border-b" style={{ borderColor: "rgba(45,45,80,0.8)" }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center glow-accent"
+              style={{ background: "linear-gradient(135deg, #7C3AED, #06B6D4)" }}>
+              <Brain size={18} className="text-white" />
+            </div>
+            <div>
+              <span className="font-bold text-white text-sm tracking-tight">CAC40 GenAI Scout</span>
+              <span className="hidden sm:block text-xs" style={{ color: "#94A3B8" }}>
+                Powered by Claude · Anthropic
+              </span>
+            </div>
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full text-xs"
+              style={{ background: "rgba(6,182,212,0.1)", border: "1px solid rgba(6,182,212,0.3)", color: "#06B6D4" }}>
+              <Zap size={12} className="fill-current" />
+              <span>40 entreprises analysées</span>
+            </div>
+            <a
+              href="https://anthropic.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all hover:opacity-90"
+              style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
+            >
+              anthropic.com →
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}

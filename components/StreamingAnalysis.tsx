@@ -1,0 +1,157 @@
+"use client";
+import { useState, useEffect, useRef } from "react";
+import { Loader2, RefreshCw, ExternalLink } from "lucide-react";
+
+interface Props {
+  companySlug: string;
+  companyName: string;
+}
+
+export default function StreamingAnalysis({ companySlug, companyName }: Props) {
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [started, setStarted] = useState(false);
+  const [done, setDone] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  const startAnalysis = async () => {
+    if (loading) return;
+    if (abortRef.current) abortRef.current.abort();
+
+    abortRef.current = new AbortController();
+    setText("");
+    setLoading(true);
+    setStarted(true);
+    setDone(false);
+
+    try {
+      const res = await fetch("/api/analyze", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ slug: companySlug }),
+        signal: abortRef.current.signal,
+      });
+
+      if (!res.ok || !res.body) throw new Error("Stream failed");
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+
+      while (true) {
+        const { done: streamDone, value } = await reader.read();
+        if (streamDone) break;
+        setText((prev) => prev + decoder.decode(value, { stream: true }));
+      }
+      setDone(true);
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name !== "AbortError") {
+        setText((prev) => prev + "\n\n_Erreur lors de l'analyse. Vérifiez les clés API._");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (bottomRef.current && loading) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [text, loading]);
+
+  function renderMarkdown(raw: string) {
+    const lines = raw.split("\n");
+    return lines.map((line, i) => {
+      if (line.startsWith("## ")) return <h2 key={i} className="text-white font-bold text-base mt-4 mb-2 pb-1" style={{ borderBottom: "1px solid rgba(124,58,237,0.3)" }}>{line.slice(3)}</h2>;
+      if (line.startsWith("### ")) return <h3 key={i} className="font-semibold text-sm mt-3 mb-1" style={{ color: "#A855F7" }}>{line.slice(4)}</h3>;
+      if (line.startsWith("- ") || line.startsWith("* ")) return (
+        <div key={i} className="flex gap-2 py-0.5">
+          <span style={{ color: "#7C3AED" }}>▸</span>
+          <span className="text-sm" style={{ color: "#CBD5E1" }}>{line.slice(2)}</span>
+        </div>
+      );
+      if (line.trim() === "") return <div key={i} className="h-2" />;
+      return <p key={i} className="text-sm leading-relaxed py-0.5" style={{ color: "#CBD5E1" }}>{line}</p>;
+    });
+  }
+
+  if (!started) {
+    return (
+      <div className="rounded-xl p-8 text-center"
+        style={{ background: "rgba(30,30,53,0.5)", border: "1px solid rgba(45,45,80,0.8)" }}>
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+          style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.3), rgba(6,182,212,0.3))", border: "1px solid rgba(124,58,237,0.3)" }}>
+          <span className="text-2xl">🤖</span>
+        </div>
+        <h3 className="text-white font-semibold mb-2">Analyse IA en direct</h3>
+        <p className="text-sm mb-6" style={{ color: "#94A3B8" }}>
+          Claude va analyser les actualités et communications de {companyName} pour évaluer leur positionnement GenAI.
+        </p>
+        <button
+          onClick={startAnalysis}
+          className="px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all hover:opacity-90 glow-accent"
+          style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
+        >
+          ▶ Lancer l'analyse Claude
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-xl overflow-hidden" style={{ border: "1px solid rgba(45,45,80,0.8)" }}>
+      {/* Header bar */}
+      <div className="flex items-center justify-between px-4 py-3"
+        style={{ background: "rgba(30,30,53,0.8)", borderBottom: "1px solid rgba(45,45,80,0.8)" }}>
+        <div className="flex items-center gap-2">
+          {loading ? (
+            <Loader2 size={14} className="animate-spin" style={{ color: "#7C3AED" }} />
+          ) : (
+            <div className="w-2 h-2 rounded-full bg-green-500" />
+          )}
+          <span className="text-xs font-medium" style={{ color: "#94A3B8" }}>
+            {loading ? "Claude analyse en temps réel..." : "Analyse terminée"}
+          </span>
+        </div>
+        {done && (
+          <button onClick={startAnalysis} className="flex items-center gap-1 text-xs hover:opacity-80 transition-opacity"
+            style={{ color: "#7C3AED" }}>
+            <RefreshCw size={12} />
+            <span>Relancer</span>
+          </button>
+        )}
+      </div>
+
+      {/* Sources */}
+      <div className="px-4 py-2 flex items-center gap-2 flex-wrap"
+        style={{ background: "rgba(15,15,26,0.5)", borderBottom: "1px solid rgba(45,45,80,0.5)" }}>
+        <span className="text-xs" style={{ color: "#94A3B8" }}>Sources:</span>
+        {["Actualités récentes", "Rapports annuels", "Communiqués presse", "LinkedIn"].map((s) => (
+          <span key={s} className="flex items-center gap-1 text-xs px-2 py-0.5 rounded"
+            style={{ background: "rgba(45,45,80,0.5)", color: "#94A3B8" }}>
+            <ExternalLink size={9} />
+            {s}
+          </span>
+        ))}
+      </div>
+
+      {/* Content */}
+      <div className="p-5 max-h-[500px] overflow-y-auto" style={{ background: "rgba(15,15,26,0.3)" }}>
+        {text ? (
+          <div className="prose-dark">
+            {renderMarkdown(text)}
+            {loading && (
+              <span className="cursor-blink text-base font-bold ml-0.5" style={{ color: "#7C3AED" }}>▌</span>
+            )}
+          </div>
+        ) : (
+          <div className="flex items-center gap-3 py-4">
+            <Loader2 size={16} className="animate-spin" style={{ color: "#7C3AED" }} />
+            <span className="text-sm" style={{ color: "#94A3B8" }}>Recherche d'informations...</span>
+          </div>
+        )}
+        <div ref={bottomRef} />
+      </div>
+    </div>
+  );
+}

@@ -93,16 +93,11 @@ export default function Home() {
                 className="hover:opacity-80 transition-opacity">
                 Blog IA
               </a>
-              <a href="https://anthropic.com" target="_blank" rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity" style={{ color: "#7C3AED" }}>
-                Anthropic
-              </a>
             </div>
           </div>
           <p className="text-xs text-center mt-4" style={{ color: "#475569" }}>
             Données indicatives basées sur sources publiques · Propulsé par{" "}
-            <a href="https://anthropic.com/claude" target="_blank" rel="noopener noreferrer"
-              className="hover:opacity-80" style={{ color: "#7C3AED" }}>Claude API</a>
+            <span style={{ color: "#7C3AED" }}>Claude API</span>
             {" "}+{" "}
             <a href="https://tavily.com" target="_blank" rel="noopener noreferrer"
               className="hover:opacity-80" style={{ color: "#06B6D4" }}>Tavily Search</a>

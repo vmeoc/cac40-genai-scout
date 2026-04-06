@@ -54,15 +54,6 @@ export default function Header() {
               <span>40 entreprises analysées</span>
             </div>
 
-            <a
-              href="https://anthropic.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg text-xs font-semibold text-white transition-all hover:opacity-90"
-              style={{ background: "linear-gradient(135deg, #7C3AED, #A855F7)" }}
-            >
-              anthropic.com →
-            </a>
           </div>
         </div>
       </div>
